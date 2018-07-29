@@ -17,6 +17,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
       >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Most Popular"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:background="@color/semitrans_background"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_horizontal"
         android:layout_width="match_parent"
@@ -26,12 +34,22 @@
         >
 
     </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Choose by Region"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/semitrans_background"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
         android:orientation="vertical"
+        android:layout_marginBottom="8dp"
         >
 
     </android.support.v7.widget.RecyclerView>

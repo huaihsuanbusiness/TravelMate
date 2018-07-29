@@ -55,6 +55,8 @@ public class MapsActivity_Wifi extends FragmentActivity implements OnMapReadyCal
     private ArrayList<ArrayList<String>> wrapall =new ArrayList<>();
     private ArrayList<String> transthree = new ArrayList<>();
     private static final int REQUEST_LOCATION = 2;
+    Double currentlongitude;
+    Double currentlatitude;
     LocationRequest locationRequest;
     String server_url = "https://quality.data.gov.tw/dq_download_json.php?nid=60139&md5_url=e5ba999fc4eefe3f9ff4a933f898ae8a";
    // private ArrayList<com.huaihsuanhuang.TravelMate.Marker> markerdata = new ArrayList<>();
@@ -98,32 +100,19 @@ public class MapsActivity_Wifi extends FragmentActivity implements OnMapReadyCal
             for (int i = 0; i < array.length(); i++) {
                 JSONObject object = array.getJSONObject(i);
                 String title = object.getString("機關名稱");
-                String l = object.get("經度").toString();
-                String b = object.get("緯度").toString();
-                if (l.isEmpty() || b.isEmpty() ) {
+                String longitudevalue = object.get("經度").toString();
+                String latitudevalue = object.get("緯度").toString();
+                if (longitudevalue.isEmpty() || latitudevalue.isEmpty() ) {
                     continue;
                 }
-                Double longitude = Double.valueOf(l);
-                Double latitude = Double.valueOf(b);
+                Double longitude = Double.valueOf(longitudevalue);
+                Double latitude = Double.valueOf(latitudevalue);
 
                 LatLng wifipoint = new LatLng(latitude, longitude);
                 addMarker(wifipoint, title);
 
-//                    transthree.add(title);
-//                transthree.add(longitude);
-//                transthree.add(latitude);
-//                    wrapall.add(transthree);
-//                    transthree = new ArrayList<>();
-//                markerdata.add(new com.huaihsuanhuang.TravelMate.Marker(title,longitude,latitude));
             }
-//            for (int i=0;i<markerdata.size();i++){
-//                String dewrapall_title=markerdata.get(i).getTitle();
-//                Double dewrapall_longitude=markerdata.get(i).getLongitude();
-//                Double dewrapall_latitude=markerdata.get(i).getLatitude();
-//
-//                LatLng wifipoint = new LatLng(dewrapall_longitude, dewrapall_latitude);
-//                addMarker(wifipoint, dewrapall_title);
-//            }
+
 
 
 
@@ -149,7 +138,7 @@ public class MapsActivity_Wifi extends FragmentActivity implements OnMapReadyCal
 
     private void addMarker(LatLng place, String title) {
         BitmapDescriptor icon =
-                BitmapDescriptorFactory.fromResource(R.drawable.icons_wifi);
+                BitmapDescriptorFactory.fromResource(R.drawable.icons_wifi2);
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(place)
@@ -173,15 +162,15 @@ public class MapsActivity_Wifi extends FragmentActivity implements OnMapReadyCal
         else {
             setupMyLocation();
             createLocationRequest();
-            fuseLocationRequest();
+       //     fuseLocationRequest();
         }
 
 
-            LatLng place = new LatLng(25.033408, 121.564099);
+            LatLng place = new LatLng(25.051861, 121.544006);
             moveMap(place);
 
 
- //       ArrayList<ArrayList<String>> wrapall_onMapReady = wrapall;
+
 
 
 
@@ -222,6 +211,8 @@ public class MapsActivity_Wifi extends FragmentActivity implements OnMapReadyCal
                                     new LatLng(location.getLatitude(),
                                             location.getLongitude())
                                     , 13));
+                            currentlatitude = location.getLatitude();
+                            currentlongitude=location.getLongitude();
                         }
                     }
                 });

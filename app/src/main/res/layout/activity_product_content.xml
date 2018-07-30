@@ -49,10 +49,12 @@
         android:id="@+id/product_content_cartbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:elevation="6dp"
+        app:elevation="8dp"
         app:pressedTranslationZ="12dp"
         app:layout_anchor="@id/product_content_appbar"
         app:layout_anchorGravity="bottom|right|end"
+        app:backgroundTint="@color/colorWhite"
+        android:src="@drawable/ic_shopping_cart_black_24dp"
         app:useCompatPadding="true"
         />
 

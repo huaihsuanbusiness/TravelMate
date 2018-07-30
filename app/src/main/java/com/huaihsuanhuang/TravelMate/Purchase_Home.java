@@ -46,6 +46,7 @@ public class Purchase_Home extends AppCompatActivity
     RecyclerView recycler_horizontal;
     RecyclerView.LayoutManager layoutManager_horizontal;
     FirebaseRecyclerAdapter<Product_Popular, ProductVH_Horizontal> adapter_horizontal;
+    FloatingActionButton product_home_cartbutton;
     private FirebaseAuth mAuth;
 
     @Override
@@ -53,6 +54,15 @@ public class Purchase_Home extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        product_home_cartbutton=findViewById(R.id.product_home_cartbutton);
+        product_home_cartbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cartintent = new Intent(Purchase_Home.this, Cart.class);
+                startActivity(cartintent);
+
+            }
+        });
 
         toolbar.setTitle("Products");
         setSupportActionBar(toolbar);
@@ -64,14 +74,13 @@ public class Purchase_Home extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent cartintent = new Intent(Purchase_Home.this, Cart.class);
-                startActivity(cartintent);
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 // TODO 資料還是不能顯示
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -92,8 +101,8 @@ public class Purchase_Home extends AppCompatActivity
 
         recycler_horizontal = findViewById(R.id.recyclerview_horizontal);
         //     recycler_horizontal.setHasFixedSize(true);
-          layoutManager_horizontal=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-          recycler_horizontal.setLayoutManager(layoutManager_horizontal);
+        layoutManager_horizontal = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recycler_horizontal.setLayoutManager(layoutManager_horizontal);
         new PagerSnapHelper().attachToRecyclerView(recycler_horizontal);
 
         loadinproducthorizontal();
@@ -222,6 +231,8 @@ public class Purchase_Home extends AppCompatActivity
         } else if (id == R.id.nav_wishlist) {
 
         } else if (id == R.id.nav_cart) {
+            Intent cartintent_drawer = new Intent(Purchase_Home.this, Cart.class);
+            startActivity(cartintent_drawer);
 
         } else if (id == R.id.nav_ordered) {
 

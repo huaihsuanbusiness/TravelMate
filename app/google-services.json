@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:276036879755:android:8c2279e65e93b0a4",
         "android_client_info": {
-          "package_name": "com.huaihsuanhuang.myapplication"
+          "package_name": "com.huaihsuanhuang.TravelMate"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "276036879755-ij6u5oir0891utrgsdhcv4ae4lb7mjdo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.huaihsuanhuang.myapplication",
+            "package_name": "com.huaihsuanhuang.TravelMate",
             "certificate_hash": "8512f3923e2d2e3d70e18101817d0f9e0e0e0ced"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "276036879755-luobs58n76v84lc4lvani8ehdi5mb3st.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.huaihsuanhuang.myapplication",
+            "package_name": "com.huaihsuanhuang.TravelMate",
             "certificate_hash": "1e7d27872fb636ddd9c3221d5fc76348c3b1b4be"
           }
         },
@@ -34,7 +34,7 @@
           "client_id": "276036879755-j6ukpgkqg6klcttl9rl982qmmhc86101.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.huaihsuanhuang.myapplication",
+            "package_name": "com.huaihsuanhuang.TravelMate",
             "certificate_hash": "cb67301c94c3034f8f9705e5f83913c19c3ea2a2"
           }
         },

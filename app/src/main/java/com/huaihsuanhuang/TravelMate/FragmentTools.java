@@ -65,7 +65,7 @@ public class FragmentTools extends Fragment {
         linearLayout_database.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Databasetest_new.class);
+                Intent intent = new Intent(getActivity(), TRA_Activity.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +79,8 @@ public class FragmentTools extends Fragment {
             }
         });
         // Inflate the layout for this fragment
-
+        View view =myfragment.findViewById(R.id.layout_tools);
+        view.getBackground().setAlpha(60);
 
         return myfragment;
     }

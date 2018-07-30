@@ -8,51 +8,57 @@
     tools:context="com.huaihsuanhuang.TravelMate.Purchase_Home"
     tools:showIn="@layout/app_bar_purchase"
     android:scrollbars="vertical">
-<android.support.v4.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbarAlwaysDrawVerticalTrack="true">
-    <LinearLayout
+
+    <android.support.v4.widget.NestedScrollView
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-      >
-        <TextView
+        android:scrollbarAlwaysDrawVerticalTrack="true">
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Most Popular"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:textColor="@color/colorWhite"
-            android:background="@color/semitrans_background"/>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:scrollbars="horizontal"
-        >
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    </android.support.v7.widget.RecyclerView>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:text="Choose by Region"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/colorWhite"
-            android:background="@color/semitrans_background"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/semitrans_background"
+                android:gravity="center"
+                android:text="Most Popular"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerview_category"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginBottom="8dp"
-        >
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                android:scrollbars="horizontal">
 
-    </android.support.v7.widget.RecyclerView>
-    </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+            </android.support.v7.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/semitrans_background"
+                android:gravity="center"
+                android:text="Choose by Region"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_category"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

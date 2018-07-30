@@ -70,7 +70,8 @@ public class FragmentHome extends Fragment {
     //    myRecyclerView.setHasFixedSize(true);
         myRecyclerView.setLayoutManager( new GridLayoutManager(this.getContext(),1));
         myRecyclerView.setAdapter(myAdapter);
-
+        View view =rootView.findViewById(R.id.layout_home);
+        view.getBackground().setAlpha(60);
         return rootView;
     }
 
@@ -83,6 +84,7 @@ public class FragmentHome extends Fragment {
                 for (DataSnapshot dsp : dataSnapshot.getChildren()) {
                     container_list.add(String.valueOf(dsp.getValue())); }
                 title_taipei= container_list.get(0);
+
                 intro_taiepi = container_list.get(1);
                 access_taipei = container_list.get(2);
                 tour_taipei= container_list.get(3);

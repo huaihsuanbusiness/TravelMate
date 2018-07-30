@@ -68,7 +68,8 @@ public class FragmentNotification extends Fragment {
 
  //       loadinnotification();
 
-
+        View view =rootView.findViewById(R.id.layout_notification);
+        view.getBackground().setAlpha(60);
         // Inflate the layout for this fragment
         return rootView;
     }

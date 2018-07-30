@@ -17,7 +17,6 @@ public class ProductViewHolder extends RecyclerView.ViewHolder implements View.O
     public ProductViewHolder(final View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
-        // TODO 外面主頁面的onclick不能用嗎?
         product_image=itemView.findViewById(R.id.product_item_background);
         product_name=itemView.findViewById(R.id.product_item_title);
 

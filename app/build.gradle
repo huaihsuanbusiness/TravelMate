@@ -63,10 +63,7 @@ dependencies {
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
     //implementation  'com.github.MdFarhanRaja:SearchableSpinner:1.2'
 
-<<<<<<< HEAD
-=======
-    implementation 'com.google.code.gson:gson:2.7'
->>>>>>> currency
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
 
 apply plugin: 'com.google.gms.google-services'

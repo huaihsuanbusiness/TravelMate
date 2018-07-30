@@ -33,8 +33,7 @@ public class RecyclerviewAdapter_Notification extends RecyclerView.Adapter<Recyc
         view= layoutInflater.inflate(R.layout.notification_items,parent,false);
 
 
-        RecyclerViewHolder viewHolder = new RecyclerViewHolder(view);
-        return viewHolder;
+        return new RecyclerViewHolder(view);
 
 
     }

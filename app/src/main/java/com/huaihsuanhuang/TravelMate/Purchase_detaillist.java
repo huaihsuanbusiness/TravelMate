@@ -29,6 +29,8 @@ public class Purchase_detaillist extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     FirebaseRecyclerAdapter<Productdetail,Productdetailviewholder> adapter;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

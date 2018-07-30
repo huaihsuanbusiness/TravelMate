@@ -37,8 +37,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
        // LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         LayoutInflater layoutInflater =LayoutInflater.from(mContext);
         view= layoutInflater.inflate(R.layout.city_items,parent,false);
-        RecyclerViewHolder recyclerviewholder = new RecyclerViewHolder(view);
-        return recyclerviewholder ;
+        return new RecyclerViewHolder(view);
     }
 
 
@@ -65,14 +64,14 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         return mCityList.size();
     }
 
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder{
+    static class RecyclerViewHolder extends RecyclerView.ViewHolder{
 
 
         TextView city_title_textview;
         ImageView city_image_imageview;
         CardView city_cardview;
 
-        public RecyclerViewHolder(View itemView) {
+        RecyclerViewHolder(View itemView) {
             super(itemView);
             city_title_textview=  itemView.findViewById(R.id.card_title_one);
             city_image_imageview= itemView.findViewById(R.id.card_image_one);

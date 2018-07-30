@@ -20,13 +20,13 @@ public class Currency {
 
 
 
-    @SerializedName("code") private String code;
-    @SerializedName("alphaCode") private String alphaCode;
-    @SerializedName("numericCode") private String numericCode;
-    @SerializedName("name") private String name;
-    @SerializedName("rate") private double rate;
-    @SerializedName("date") private String date;
-    @SerializedName("inverseRate") private double inverseRate;
+    private String code;
+    private String alphaCode;
+    private String numericCode;
+    private String name;
+    private double rate;
+    private String date;
+    private double inverseRate;
 
     public String getCode() { return code;}
 

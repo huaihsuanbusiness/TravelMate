@@ -18,8 +18,8 @@ import java.util.List;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class Database_order extends SQLiteAssetHelper {
-    private static final String DB_name = "TravelMateDB.db";
-    private static final String DB_path = "/Users/huaihsuanhuang/AndroidStudioProjects/TravelMate/app/src/main/assets/database/TravelMateDB.db";
+    private static final String DB_name = "TMDB.db";
+    private static final String DB_path = "/Users/huaihsuanhuang/AndroidStudioProjects/TravelMate/app/src/main/assets/database/TMDB.db";
     private static final int DB_version = 1;
    // private SQLiteAssetHelper dbHelper;
     public Database_order(Context context) {
@@ -36,7 +36,7 @@ public class Database_order extends SQLiteAssetHelper {
         String sqlSelect[] = {"product_id", "product_name", "product_quantity", "product_price", "product_discount"};
         String sqltable = "Orderdetail";
         qb.setTables(sqltable);
-        //TODO 呼叫DB檔案？
+      
         Cursor cursor = qb.query(db, sqlSelect, null, null, null, null, null);
 
         final List<Order> result = new ArrayList<>();

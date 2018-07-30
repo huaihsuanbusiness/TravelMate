@@ -23,7 +23,9 @@ import com.huaihsuanhuang.TravelMate.model.Order;
 import com.huaihsuanhuang.TravelMate.model.Requestfirebase;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -86,11 +88,15 @@ public class Cart extends AppCompatActivity {
                         user.getEmail(),
                         user.getDisplayName(), cart_total.getText().toString(), orderlsit_cart, inputphone.getText().toString()
                 );
+                long currentTime = System.currentTimeMillis();
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyy年-MM月dd日-HH時mm分ss秒");
+                Date date = new Date(currentTime);
 
-                databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
 
+                databaserequest.child(formatter.format(date)).setValue(request);
+            //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
                 new Database_order(getBaseContext()).clearcart();
-                Toast.makeText(Cart.this, "Order Placed", Toast.LENGTH_LONG);
+                Toast.makeText(Cart.this, "Order Placed", Toast.LENGTH_LONG).show();
                 finish();
             }
         });

@@ -64,6 +64,8 @@ dependencies {
     implementation 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
     implementation 'com.readystatesoftware.sqliteasset:sqliteassethelper:2.0.1'
     //implementation  'com.github.MdFarhanRaja:SearchableSpinner:1.2'
+
+    implementation 'com.google.code.gson:gson:2.7'
 }
 
 apply plugin: 'com.google.gms.google-services'

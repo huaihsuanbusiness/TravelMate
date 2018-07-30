@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".City_Content" />
-        <activity android:name=".Tools_Currency" />
+        <activity android:name=".currency.Tools_Currency" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

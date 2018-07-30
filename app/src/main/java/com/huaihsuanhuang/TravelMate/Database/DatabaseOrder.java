@@ -17,12 +17,12 @@ import java.util.List;
 
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-public class Database_order extends SQLiteAssetHelper {
+public class DatabaseOrder extends SQLiteAssetHelper {
     private static final String DB_name = "TMDB.db";
     private static final String DB_path = "/Users/huaihsuanhuang/AndroidStudioProjects/TravelMate/app/src/main/assets/database/TMDB.db";
     private static final int DB_version = 1;
    // private SQLiteAssetHelper dbHelper;
-    public Database_order(Context context) {
+    public DatabaseOrder(Context context) {
         super(context, DB_name, null, DB_version);
     }
 

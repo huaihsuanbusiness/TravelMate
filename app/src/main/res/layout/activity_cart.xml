@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/beach"
     android:padding="10dp"
-    tools:context="com.huaihsuanhuang.TravelMate.Cart">
+    tools:context="com.huaihsuanhuang.TravelMate.Purchase.Cart">
 
 
     <android.support.v7.widget.RecyclerView

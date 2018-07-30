@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 
-public class TRA_Activity extends AppCompatActivity {
+public class TRAActivity extends AppCompatActivity {
 
 
     WebView myWebView;

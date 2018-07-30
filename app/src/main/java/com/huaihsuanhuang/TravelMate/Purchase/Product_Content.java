@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.Purchase;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.huaihsuanhuang.TravelMate.Database.Database_order;
+import com.huaihsuanhuang.TravelMate.Database.DatabaseOrder;
+import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Order;
 import com.huaihsuanhuang.TravelMate.model.Productdetail;
 import com.squareup.picasso.Picasso;
@@ -53,7 +54,7 @@ public class Product_Content extends AppCompatActivity {
                 setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View view) {
-                                           new Database_order(getBaseContext()).addtocart(new Order(
+                                           new DatabaseOrder(getBaseContext()).addtocart(new Order(
                                                    currntproductdetail.getId(),
                                                    currntproductdetail.getAname(),
                                                    product_content_numberbtn.getNumber(),

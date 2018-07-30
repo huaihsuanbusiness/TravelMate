@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.Purchase;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -17,8 +17,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.huaihsuanhuang.TravelMate.Adapter.Cart_Adapter;
-import com.huaihsuanhuang.TravelMate.Database.Database_order;
+import com.huaihsuanhuang.TravelMate.Adapter.CartAdapter;
+import com.huaihsuanhuang.TravelMate.Database.DatabaseOrder;
+import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Order;
 import com.huaihsuanhuang.TravelMate.model.Requestfirebase;
 
@@ -29,8 +30,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import info.hoang8f.widget.FButton;
-
 public class Cart extends AppCompatActivity {
 
     RecyclerView cart_recyclerview;
@@ -40,7 +39,7 @@ public class Cart extends AppCompatActivity {
     TextView cart_total;
     Button cart_placeorder;
     List<Order> orderlsit_cart = new ArrayList<>();
-    Cart_Adapter adapter;
+    CartAdapter adapter;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
@@ -95,7 +94,7 @@ public class Cart extends AppCompatActivity {
 
                 databaserequest.child(formatter.format(date)).setValue(request);
             //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
-                new Database_order(getBaseContext()).clearcart();
+                new DatabaseOrder(getBaseContext()).clearcart();
                 Toast.makeText(Cart.this, "Order Placed", Toast.LENGTH_LONG).show();
                 finish();
             }
@@ -111,8 +110,8 @@ public class Cart extends AppCompatActivity {
     }
 
     private void loadincart() {
-        orderlsit_cart = new Database_order(this).getcart();
-        adapter = new Cart_Adapter(orderlsit_cart, this);
+        orderlsit_cart = new DatabaseOrder(this).getcart();
+        adapter = new CartAdapter(orderlsit_cart, this);
         cart_recyclerview.setAdapter(adapter);
         int total = 0;
         for (Order order : orderlsit_cart) {

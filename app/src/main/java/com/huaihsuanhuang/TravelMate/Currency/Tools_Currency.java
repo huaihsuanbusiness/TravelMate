@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate.currency;
+package com.huaihsuanhuang.TravelMate.Currency;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +21,9 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.huaihsuanhuang.TravelMate.R;
-import com.huaihsuanhuang.TravelMate.currency.listener.SimpleOnItemSelectedListener;
-import com.huaihsuanhuang.TravelMate.currency.listener.SimpleTextWatcher;
+import com.huaihsuanhuang.TravelMate.Currency.listener.SimpleOnItemSelectedListener;
+import com.huaihsuanhuang.TravelMate.Currency.listener.SimpleTextWatcher;
+import com.huaihsuanhuang.TravelMate.model.Currency;
 
 import org.json.JSONObject;
 

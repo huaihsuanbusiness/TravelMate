@@ -1,7 +1,6 @@
-package com.huaihsuanhuang.TravelMate.currency;
+package com.huaihsuanhuang.TravelMate.Currency;
 
 import com.google.gson.GsonBuilder;
-import com.google.gson.annotations.SerializedName;
 
 public class Currency {
 

@@ -8,12 +8,12 @@ import android.widget.TextView;
 import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
 import com.huaihsuanhuang.TravelMate.R;
 
-public class ProductVH_Horizontal extends RecyclerView.ViewHolder implements View.OnClickListener{
+public class ProductVHHorizontal extends RecyclerView.ViewHolder implements View.OnClickListener{
     public TextView product_name_horizontal;
     public ImageView product_image_horizontal;
     private Itemonclicklistener itemonclicklistener;
 
-    public ProductVH_Horizontal(View itemView) {
+    public ProductVHHorizontal(View itemView) {
         super(itemView);
         itemView.setOnClickListener(this);
         product_image_horizontal=itemView.findViewById(R.id.card_horizontal_image);

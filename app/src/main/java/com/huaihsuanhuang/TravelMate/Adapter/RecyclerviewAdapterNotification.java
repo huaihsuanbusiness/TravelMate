@@ -14,11 +14,11 @@ import com.huaihsuanhuang.TravelMate.R;
 
 import java.util.List;
 
-public class RecyclerviewAdapter_Notification extends RecyclerView.Adapter<RecyclerviewAdapter_Notification.RecyclerViewHolder> {
+public class RecyclerviewAdapterNotification extends RecyclerView.Adapter<RecyclerviewAdapterNotification.RecyclerViewHolder> {
     private Context mContext;
     private List<Notifications> mNotification;
 
-    public RecyclerviewAdapter_Notification(Context mContext, List<Notifications> mNotification) {
+    public RecyclerviewAdapterNotification(Context mContext, List<Notifications> mNotification) {
         this.mContext = mContext;
         this.mNotification = mNotification;
     }

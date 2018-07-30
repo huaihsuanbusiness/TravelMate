@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.huaihsuanhuang.TravelMate.City_Content;
+import com.huaihsuanhuang.TravelMate.MainPage.CityContent;
 import com.huaihsuanhuang.TravelMate.model.City;
 import com.huaihsuanhuang.TravelMate.R;
 import com.squareup.picasso.Picasso;
@@ -49,7 +49,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         holder.city_cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext,City_Content.class);
+                Intent intent = new Intent(mContext,CityContent.class);
 
                 intent.putExtra("City",mCityList.get(position));
 

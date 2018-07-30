@@ -48,7 +48,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MapsActivity_Wifi extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     //TODO 金鑰有問題  y 資料依樣無法顯示

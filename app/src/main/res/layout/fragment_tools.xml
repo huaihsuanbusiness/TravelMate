@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@mipmap/beach"
     android:id="@+id/layout_tools"
-    tools:context=".FragmentTools">
+    tools:context=".MainPage.FragmentTools">
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"

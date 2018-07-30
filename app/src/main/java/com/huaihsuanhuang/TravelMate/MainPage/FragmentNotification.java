@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.MainPage;
 
 
 import android.os.Bundle;
@@ -16,8 +16,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Notifications;
-import com.huaihsuanhuang.TravelMate.Adapter.RecyclerviewAdapter_Notification;
+import com.huaihsuanhuang.TravelMate.Adapter.RecyclerviewAdapterNotification;
 
 import java.util.ArrayList;
 
@@ -34,7 +35,7 @@ public class FragmentNotification extends Fragment {
     DatabaseReference reference_note;
     RecyclerView recyclerview_notification;
     RecyclerView.LayoutManager layoutManager_notification;
-    RecyclerviewAdapter_Notification myAdapter;
+    RecyclerviewAdapterNotification myAdapter;
   //  Notifications notifications =new Notifications();
 
     public FragmentNotification() {
@@ -63,7 +64,7 @@ public class FragmentNotification extends Fragment {
         myRecyclerView.setHasFixedSize(true);
         myRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
 
-         myAdapter = new RecyclerviewAdapter_Notification(this.getContext(),notilist);
+         myAdapter = new RecyclerviewAdapterNotification(this.getContext(),notilist);
         myRecyclerView.setAdapter(myAdapter);
 
  //       loadinnotification();

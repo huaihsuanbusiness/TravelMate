@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.Purchase;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -15,6 +15,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
 import com.huaihsuanhuang.TravelMate.model.Productdetail;
 import com.huaihsuanhuang.TravelMate.Adapter.Productdetailviewholder;

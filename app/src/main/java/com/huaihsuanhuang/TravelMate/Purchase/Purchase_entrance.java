@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.Purchase;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.huaihsuanhuang.TravelMate.Account.Auth;
+import com.huaihsuanhuang.TravelMate.R;
 
 public class Purchase_entrance extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;

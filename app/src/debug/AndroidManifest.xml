@@ -4,7 +4,7 @@
 
     <application>
         <activity
-            android:name=".Purchase_Home"
+            android:name=".Purchase.Purchase_Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme" />
         <activity android:name=".Purchase_detailist"></activity>

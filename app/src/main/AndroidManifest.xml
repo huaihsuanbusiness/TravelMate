@@ -26,7 +26,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainPage.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +34,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".City_Content" />
-        <activity android:name=".currency.Tools_Currency" />
+        <activity android:name=".MainPage.CityContent" />
+        <activity android:name=".Currency.Tools_Currency" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -52,11 +52,11 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity_Wifi"
+            android:name=".MapsActivityWifi"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".TRA_Activity" />
-        <activity android:name=".Auth" />
-        <activity android:name=".CreateAccount" />
+        <activity android:name=".TRAActivity" />
+        <activity android:name=".Account.Auth" />
+        <activity android:name=".Account.CreateAccount" />
 
         <service
             android:name=".MyFirebaseMessagingService"
@@ -67,10 +67,10 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".Purchase_entrance" />
-        <activity android:name=".Purchase_detaillist" />
-        <activity android:name=".Product_Content" />
-        <activity android:name=".Cart"></activity>
+        <activity android:name=".Purchase.Purchase_entrance" />
+        <activity android:name=".Purchase.Purchase_detaillist" />
+        <activity android:name=".Purchase.Product_Content" />
+        <activity android:name=".Purchase.Cart"></activity>
     </application>
 
 </manifest>

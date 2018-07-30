@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.MainPage;
 
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.City;
 import com.squareup.picasso.Picasso;
 
-public class City_Content extends AppCompatActivity {
+public class CityContent extends AppCompatActivity {
 
 
 

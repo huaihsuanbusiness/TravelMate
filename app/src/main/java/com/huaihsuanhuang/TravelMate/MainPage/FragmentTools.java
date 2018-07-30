@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.MainPage;
 
 
 import android.content.Intent;
@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.huaihsuanhuang.TravelMate.currency.Tools_Currency;
+import com.huaihsuanhuang.TravelMate.Account.Auth;
+import com.huaihsuanhuang.TravelMate.MapsActivityWifi;
+import com.huaihsuanhuang.TravelMate.Purchase.Purchase_entrance;
+import com.huaihsuanhuang.TravelMate.Currency.Tools_Currency;
+import com.huaihsuanhuang.TravelMate.R;
+import com.huaihsuanhuang.TravelMate.TRAActivity;
 
 
 /**
@@ -33,7 +38,7 @@ public class FragmentTools extends Fragment {
         linearLayout_taipeiwifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MapsActivity_Wifi.class);
+                Intent intent = new Intent(getActivity(), MapsActivityWifi.class);
                 startActivity(intent);
             }
         });
@@ -51,7 +56,7 @@ public class FragmentTools extends Fragment {
         linearLayout_tra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TRA_Activity.class);
+                Intent intent = new Intent(getActivity(), TRAActivity.class);
                 startActivity(intent);
             }
         });
@@ -67,7 +72,7 @@ public class FragmentTools extends Fragment {
         linearLayout_database.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TRA_Activity.class);
+                Intent intent = new Intent(getActivity(), TRAActivity.class);
                 startActivity(intent);
             }
         });

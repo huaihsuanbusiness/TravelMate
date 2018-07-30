@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.huaihsuanhuang.TravelMate.Purchase_Home"
+    tools:context="com.huaihsuanhuang.TravelMate.Purchase.Purchase_Home"
     tools:showIn="@layout/app_bar_purchase"
     android:scrollbars="vertical">
 

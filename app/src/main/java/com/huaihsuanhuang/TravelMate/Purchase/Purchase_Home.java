@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate;
+package com.huaihsuanhuang.TravelMate.Purchase;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,11 +27,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.huaihsuanhuang.TravelMate.Adapter.ProductVH_Horizontal;
+import com.huaihsuanhuang.TravelMate.Adapter.ProductVHHorizontal;
 import com.huaihsuanhuang.TravelMate.Adapter.ProductViewHolder;
+import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
-import com.huaihsuanhuang.TravelMate.model.Product_Category;
-import com.huaihsuanhuang.TravelMate.model.Product_Popular;
+import com.huaihsuanhuang.TravelMate.model.ProductCategory;
+import com.huaihsuanhuang.TravelMate.model.ProductPopular;
 import com.squareup.picasso.Picasso;
 
 public class Purchase_Home extends AppCompatActivity
@@ -42,10 +43,10 @@ public class Purchase_Home extends AppCompatActivity
     TextView header_text;
     RecyclerView recycler_category;
     RecyclerView.LayoutManager layoutManager_drawer;
-    FirebaseRecyclerAdapter<Product_Category, ProductViewHolder> adapter_category;
+    FirebaseRecyclerAdapter<ProductCategory, ProductViewHolder> adapter_category;
     RecyclerView recycler_horizontal;
     RecyclerView.LayoutManager layoutManager_horizontal;
-    FirebaseRecyclerAdapter<Product_Popular, ProductVH_Horizontal> adapter_horizontal;
+    FirebaseRecyclerAdapter<ProductPopular, ProductVHHorizontal> adapter_horizontal;
     FloatingActionButton product_home_cartbutton;
     private FirebaseAuth mAuth;
 
@@ -124,13 +125,13 @@ public class Purchase_Home extends AppCompatActivity
     }
 
     private void loadinproducthorizontal() {
-        FirebaseRecyclerOptions<Product_Popular> options =
-                new FirebaseRecyclerOptions.Builder<Product_Popular>()
-                        .setQuery(reference_popular, Product_Popular.class)
+        FirebaseRecyclerOptions<ProductPopular> options =
+                new FirebaseRecyclerOptions.Builder<ProductPopular>()
+                        .setQuery(reference_popular, ProductPopular.class)
                         .build();
-        adapter_horizontal = new FirebaseRecyclerAdapter<Product_Popular, ProductVH_Horizontal>(options) {
+        adapter_horizontal = new FirebaseRecyclerAdapter<ProductPopular, ProductVHHorizontal>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ProductVH_Horizontal holder, int position, @NonNull Product_Popular model) {
+            protected void onBindViewHolder(@NonNull ProductVHHorizontal holder, int position, @NonNull ProductPopular model) {
                 holder.product_name_horizontal.setText(model.getName());
                 Picasso.get().load(model.getImage()).into(holder.product_image_horizontal);
                 holder.setItemonclicklistener(new Itemonclicklistener() {
@@ -145,27 +146,27 @@ public class Purchase_Home extends AppCompatActivity
 
             @NonNull
             @Override
-            public ProductVH_Horizontal onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public ProductVHHorizontal onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.horizontal_item, parent, false);
-                return new ProductVH_Horizontal(view);
+                return new ProductVHHorizontal(view);
             }
         };
         recycler_horizontal.setAdapter(adapter_horizontal);
     }
 
     private void loadinproductcaegory() {
-        FirebaseRecyclerOptions<Product_Category> options =
-                new FirebaseRecyclerOptions.Builder<Product_Category>()
-                        .setQuery(reference_product, Product_Category.class)
+        FirebaseRecyclerOptions<ProductCategory> options =
+                new FirebaseRecyclerOptions.Builder<ProductCategory>()
+                        .setQuery(reference_product, ProductCategory.class)
                         .build();
-        adapter_category = new FirebaseRecyclerAdapter<Product_Category, ProductViewHolder>(options) {
+        adapter_category = new FirebaseRecyclerAdapter<ProductCategory, ProductViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull Product_Category model) {
+            protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull ProductCategory model) {
                 Log.d("loadin", model.getImage() + "\n" + model.getName());
                 holder.product_name.setText(model.getName());
                 Picasso.get().load(model.getImage()).into(holder.product_image);
-                // final Product_Category clickitem =model;
+                // final ProductCategory clickitem =model;
                 holder.setItemonclicklistener(new Itemonclicklistener() {
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/beach"
-    tools:context="com.huaihsuanhuang.TravelMate.Purchase_entrance"
+    tools:context="com.huaihsuanhuang.TravelMate.Purchase.Purchase_entrance"
 
 
     >

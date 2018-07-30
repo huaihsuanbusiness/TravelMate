@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/beach"
-    tools:context=".Auth">
+    tools:context=".Account.Auth">
 
     <android.support.design.widget.TextInputLayout
 

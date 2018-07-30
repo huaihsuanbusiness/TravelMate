@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.huaihsuanhuang.TravelMate.currency.Tools_Currency;
+
 
 /**
  * A simple {@link Fragment} subclass.

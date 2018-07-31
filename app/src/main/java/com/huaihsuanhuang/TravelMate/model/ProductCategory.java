@@ -1,6 +1,6 @@
 package com.huaihsuanhuang.TravelMate.model;
 
-public class Product_Category {
+public class ProductCategory {
 
 String image;
 String name;

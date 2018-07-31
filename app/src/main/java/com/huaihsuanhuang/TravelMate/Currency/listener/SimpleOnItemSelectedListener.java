@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate.currency.listener;
+package com.huaihsuanhuang.TravelMate.Currency.listener;
 
 import android.view.View;
 import android.widget.AdapterView;

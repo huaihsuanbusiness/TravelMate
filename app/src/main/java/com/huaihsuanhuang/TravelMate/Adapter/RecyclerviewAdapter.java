@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.huaihsuanhuang.TravelMate.MainPage.CityContent;
+import com.huaihsuanhuang.TravelMate.MainPage.FragmentHome;
+import com.huaihsuanhuang.TravelMate.Purchase.Purchase_Home;
 import com.huaihsuanhuang.TravelMate.model.City;
 import com.huaihsuanhuang.TravelMate.R;
 import com.squareup.picasso.Picasso;
@@ -43,7 +46,10 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewHolder holder, final int position) {
-        Picasso.get().load(mCityList.get(position).getThumbnail()).into(holder.city_image_imageview);
+       // Picasso.get().load(mCityList.get(position).getThumbnail()).into(holder.city_image_imageview);
+        Glide.with(this.mContext)
+                .load(mCityList.get(position).getThumbnail())
+                .into(holder.city_image_imageview);
         holder.city_title_textview.setText(mCityList.get(position).getTitle());
 
         holder.city_cardview.setOnClickListener(new View.OnClickListener() {

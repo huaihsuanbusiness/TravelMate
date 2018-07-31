@@ -1,6 +1,6 @@
 package com.huaihsuanhuang.TravelMate.model;
 
-public class Product_Popular {
+public class ProductPopular {
 
     String image;
     String name;

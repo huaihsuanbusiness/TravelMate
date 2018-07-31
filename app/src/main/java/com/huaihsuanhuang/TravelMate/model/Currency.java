@@ -1,4 +1,4 @@
-package com.huaihsuanhuang.TravelMate.Currency;
+package com.huaihsuanhuang.TravelMate.model;
 
 import com.google.gson.GsonBuilder;
 

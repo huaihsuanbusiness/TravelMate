@@ -1,5 +1,6 @@
 package com.huaihsuanhuang.TravelMate.Purchase;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -99,7 +101,9 @@ public class Purchase_Home extends AppCompatActivity
         //    recycler_category.setHasFixedSize(true);
         layoutManager_drawer = new LinearLayoutManager(this);
         recycler_category.setLayoutManager(layoutManager_drawer);
-
+        recycler_category.setDrawingCacheEnabled(true);
+        recycler_category.setItemViewCacheSize(20);
+        recycler_category.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recycler_horizontal = findViewById(R.id.recyclerview_horizontal);
         //     recycler_horizontal.setHasFixedSize(true);
         layoutManager_horizontal = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -133,7 +137,10 @@ public class Purchase_Home extends AppCompatActivity
             @Override
             protected void onBindViewHolder(@NonNull ProductVHHorizontal holder, int position, @NonNull ProductPopular model) {
                 holder.product_name_horizontal.setText(model.getName());
-                Picasso.get().load(model.getImage()).into(holder.product_image_horizontal);
+             //   Picasso.get().load(model.getImage()).into(holder.product_image_horizontal);
+                Glide.with(Purchase_Home.this)
+                        .load(model.getImage())
+                        .into(holder.product_image_horizontal);
                 holder.setItemonclicklistener(new Itemonclicklistener() {
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
@@ -152,7 +159,9 @@ public class Purchase_Home extends AppCompatActivity
                 return new ProductVHHorizontal(view);
             }
         };
+        adapter_horizontal.notifyDataSetChanged();
         recycler_horizontal.setAdapter(adapter_horizontal);
+        recycler_horizontal.setNestedScrollingEnabled(false);
     }
 
     private void loadinproductcaegory() {
@@ -165,8 +174,11 @@ public class Purchase_Home extends AppCompatActivity
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull ProductCategory model) {
                 Log.d("loadin", model.getImage() + "\n" + model.getName());
                 holder.product_name.setText(model.getName());
-                Picasso.get().load(model.getImage()).into(holder.product_image);
+               // Picasso.get().load(model.getImage()).into(holder.product_image);
                 // final ProductCategory clickitem =model;
+                Glide.with(Purchase_Home.this)
+                        .load(model.getImage())
+                        .into(holder.product_image);
                 holder.setItemonclicklistener(new Itemonclicklistener() {
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
@@ -186,7 +198,9 @@ public class Purchase_Home extends AppCompatActivity
                 return new ProductViewHolder(view);
             }
         };
+        adapter_category.notifyDataSetChanged();
         recycler_category.setAdapter(adapter_category);
+        recycler_category.setNestedScrollingEnabled(false);
     }
 
     @Override

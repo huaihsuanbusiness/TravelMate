@@ -129,16 +129,10 @@ public class Tools_Currency extends AppCompatActivity {
     }
 
     private void exchangeposition() {
-        float posOneX = currency_inputlayout.getX();
+
         float posOneY = currency_inputlayout.getY();
-
-        float posTwoX = currency_targetlayout.getX();
         float posTwoY = currency_targetlayout.getY();
-
-        currency_inputlayout.setX(posTwoX);
         currency_inputlayout.setY(posTwoY);
-
-        currency_targetlayout.setX(posOneX);
         currency_targetlayout.setY(posOneY);
         mCurrencyInput.setText("");
         mCurrencyInputTarget.setText("");

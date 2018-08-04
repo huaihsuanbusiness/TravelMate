@@ -81,13 +81,14 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data1_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/home_city_access"
+                    android:id="@+id/home_city_data1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
@@ -99,18 +100,171 @@
                     />
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data2_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardElevation="5dp"
                 app:cardUseCompatPadding="true">
 
                 <TextView
-                    android:id="@+id/home_city_tourism"
+                    android:id="@+id/home_city_data2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
                     android:padding="20dp"
-                    android:text="tourism"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data3_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data4_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data5_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data6_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data7_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data8_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data9_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14dp"
+                    android:layout_marginTop="8dp"
+                    />
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/home_city_data10_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <TextView
+                    android:id="@+id/home_city_data10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="20dp"
+                    android:text="city_data2"
                     android:textColor="@color/colorBlack"
                     android:textSize="14dp"
                     android:layout_marginTop="8dp"

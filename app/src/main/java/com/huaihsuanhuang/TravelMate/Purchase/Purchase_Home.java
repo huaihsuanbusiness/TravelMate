@@ -77,14 +77,7 @@ public class Purchase_Home extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
 
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-// TODO 資料還是不能顯示
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -142,10 +135,11 @@ public class Purchase_Home extends AppCompatActivity
                         .load(model.getImage())
                         .into(holder.product_image_horizontal);
                 holder.setItemonclicklistener(new Itemonclicklistener() {
+                    //TODO onclicklistener 沒反應
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
                         Intent intent = new Intent(Purchase_Home.this, Product_Content.class);
-                        intent.putExtra("fmanuId", adapter_horizontal.getRef(position).getKey());
+                        intent.putExtra("Id", adapter_horizontal.getRef(position).getKey());
                         startActivity(intent);
                     }
                 });
@@ -183,7 +177,7 @@ public class Purchase_Home extends AppCompatActivity
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
                         Intent intent = new Intent(Purchase_Home.this, Purchase_detaillist.class);
-                        intent.putExtra("productID", adapter_category.getRef(position).getKey());
+                        intent.putExtra("productKey", adapter_category.getRef(position).getKey());
                         startActivity(intent);
                     }
                 });

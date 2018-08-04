@@ -55,9 +55,6 @@ public class DatabaseOrder extends SQLiteAssetHelper {
     public void addtocart(Order order) {
 
         SQLiteDatabase db = getReadableDatabase();
-      // SQLiteDatabase db = dbHelper.getWritableDatabase();
-//        SQLiteDatabase db = SQLiteDatabase.openDatabase(DB_path, null,
-//                SQLiteDatabase.OPEN_READWRITE);
         String query = String.format("INSERT OR REPLACE INTO Orderdetail(product_id,product_name,product_quantity,product_price, product_discount) VALUES ('%s','%s','%s','%s','%s');",
                 order.getProduct_id(),
                 order.getProduct_name(),
@@ -70,6 +67,11 @@ public class DatabaseOrder extends SQLiteAssetHelper {
     public void clearcart() {
         SQLiteDatabase db = getWritableDatabase();
         String query = String.format("DELETE FROM OrderDetail;");
+        db.execSQL(query);
+    }
+    public void removecart(String product_id) {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = String.format("DELETE FROM OrderDetail WHERE product_id = %s",product_id);
         db.execSQL(query);
     }
 }

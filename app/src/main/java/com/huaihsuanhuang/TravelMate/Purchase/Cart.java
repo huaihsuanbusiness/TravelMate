@@ -4,9 +4,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -40,6 +44,7 @@ public class Cart extends AppCompatActivity {
     Button cart_placeorder;
     List<Order> orderlsit_cart = new ArrayList<>();
     CartAdapter adapter;
+    CardView cart_item_cardview;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
 
@@ -66,8 +71,11 @@ public class Cart extends AppCompatActivity {
                 showAlertdialog();
             }
         });
+        cart_item_cardview = findViewById(R.id.cart_item_cardview);
+
         loadincart();
     }
+
 
     private void showAlertdialog() {
         AlertDialog.Builder ad = new AlertDialog.Builder(Cart.this);
@@ -93,7 +101,7 @@ public class Cart extends AppCompatActivity {
 
 
                 databaserequest.child(formatter.format(date)).setValue(request);
-            //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+                //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
                 new DatabaseOrder(getBaseContext()).clearcart();
                 Toast.makeText(Cart.this, "Order Placed", Toast.LENGTH_LONG).show();
                 finish();
@@ -109,10 +117,35 @@ public class Cart extends AppCompatActivity {
 
     }
 
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+        //TODO info.positoin nullpointerexception
+        View view = info.targetView;
+        String product_id=orderlsit_cart.get(position).getProduct_id();
+        switch (item.getItemId()) {
+
+            case R.id.cart_update: {
+                return true;
+            }
+            case R.id.cart_remove: {
+                new DatabaseOrder(getBaseContext()).removecart(product_id);
+                return true;
+            }
+        }
+        return true;
+    }
+
     private void loadincart() {
         orderlsit_cart = new DatabaseOrder(this).getcart();
         adapter = new CartAdapter(orderlsit_cart, this);
         cart_recyclerview.setAdapter(adapter);
+        registerForContextMenu(cart_recyclerview);
+
+
         int total = 0;
         for (Order order : orderlsit_cart) {
 

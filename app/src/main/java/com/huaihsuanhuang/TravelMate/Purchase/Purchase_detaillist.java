@@ -45,7 +45,7 @@ public class Purchase_detaillist extends AppCompatActivity {
         layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         if(getIntent()!=null){
-            pruductId =getIntent().getStringExtra("productID");
+            pruductId =getIntent().getStringExtra("productKey");
         }
         if (!(pruductId.isEmpty())&& pruductId!=null){
             loadinproduct( pruductId.toString());
@@ -73,7 +73,7 @@ public class Purchase_detaillist extends AppCompatActivity {
 
         adapter =new FirebaseRecyclerAdapter<Productdetail, Productdetailviewholder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull Productdetailviewholder holder, int position, @NonNull Productdetail model) {
+            protected void onBindViewHolder(@NonNull Productdetailviewholder holder, int position, @NonNull final Productdetail model) {
                 Log.d("detaildata",model.getAname()+"\n"+model.getBimage());
                 holder.product_detail_name.setText(model.getAname());
                 Picasso.get().load(model.getBimage()).into(holder.product_detail_image);
@@ -84,7 +84,7 @@ public class Purchase_detaillist extends AppCompatActivity {
                     public void onClick(View view, int position, boolean islongclick) {
 
                         Intent intent =new Intent(Purchase_detaillist.this,Product_Content.class);
-                        intent.putExtra("fmanuId",adapter.getRef(position).getKey());
+                        intent.putExtra("Id",adapter.getRef(position).getKey());
                         startActivity(intent);
 
                     }

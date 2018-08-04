@@ -31,7 +31,7 @@ public class Product_Content extends AppCompatActivity {
     FloatingActionButton product_content_cartbtn;
     ElegantNumberButton product_content_numberbtn;
 
-    String product_Id = "";
+    String product_Key = "";
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myref;
@@ -75,10 +75,10 @@ public class Product_Content extends AppCompatActivity {
 
         if (getIntent() != null) {
 
-            product_Id = getIntent().getStringExtra("fmanuId");
-            if (!(product_Id.isEmpty())) {
+            product_Key = getIntent().getStringExtra("Id");
+            if (!(product_Key.isEmpty())) {
 
-                getProductcontent(product_Id);
+                getProductcontent(product_Key);
             }
         }
 
@@ -90,7 +90,6 @@ public class Product_Content extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 currntproductdetail = dataSnapshot.getValue(Productdetail.class);
-//TODO 沒有set到資料？
                 Picasso.get().load(currntproductdetail.getBimage()).into(product_image);
                 product_content_collapsing.setTitle(currntproductdetail.getAname());
                 product_price.setText(currntproductdetail.getDprice());

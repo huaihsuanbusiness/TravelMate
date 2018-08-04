@@ -4,8 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationManager;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -24,14 +22,9 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -39,25 +32,30 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.huaihsuanhuang.TravelMate.model.MarkerLocation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Retrofit;
 
 public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    //TODO 金鑰有問題  y 資料依樣無法顯示
+
     private ArrayList<ArrayList<String>> wrapall =new ArrayList<>();
     private ArrayList<String> transthree = new ArrayList<>();
     private static final int REQUEST_LOCATION = 2;
     Double currentlongitude;
     Double currentlatitude;
     LocationRequest locationRequest;
+    List<MarkerLocation> markerLocations;
     String server_url = "https://quality.data.gov.tw/dq_download_json.php?nid=60139&md5_url=e5ba999fc4eefe3f9ff4a933f898ae8a";
    // private ArrayList<com.huaihsuanhuang.TravelMate.Marker> markerdata = new ArrayList<>();
     @Override
@@ -91,6 +89,9 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
         mapFragment.getMapAsync(this);
     }
 
+
+
+
     private void parserJson(JSONArray jsonArray) {
 
         try {
@@ -105,6 +106,7 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
                 if (longitudevalue.isEmpty() || latitudevalue.isEmpty() ) {
                     continue;
                 }
+
                 Double longitude = Double.valueOf(longitudevalue);
                 Double latitude = Double.valueOf(latitudevalue);
 
@@ -205,10 +207,11 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
                     public void onComplete(@NonNull Task<Location> task) {
                         if (task.isSuccessful()){
                             Location location = task.getResult();
-                            Log.i("LOCATION", location.getLatitude() + "/"
-                                    + location.getLongitude());
+//                            Log.i("LOCATION", location.getLatitude() + "/"
+//                                    + location.getLongitude());
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(location.getLatitude(),
+                                            //TODO on a null object reference
                                             location.getLongitude())
                                     , 13));
                             currentlatitude = location.getLatitude();

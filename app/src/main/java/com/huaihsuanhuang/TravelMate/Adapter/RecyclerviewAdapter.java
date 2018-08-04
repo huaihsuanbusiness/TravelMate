@@ -37,8 +37,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-       // LayoutInflater layoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        LayoutInflater layoutInflater =LayoutInflater.from(mContext);
+       LayoutInflater layoutInflater =LayoutInflater.from(mContext);
         view= layoutInflater.inflate(R.layout.city_items,parent,false);
         return new RecyclerViewHolder(view);
     }

@@ -256,14 +256,14 @@
                         android:layout_marginTop="15dp"
                         android:layout_gravity="center"
                         android:tint="@color/colorWhite"
-                        android:src="@drawable/ic_outline_subway_24px" />
+                        android:src="@drawable/ic_live_help_black_24dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="20dp"
                         android:gravity="center"
                         android:background="@color/colorBlueJeansDark"
-                        android:text="測試區"
+                        android:text="Ask For Help"
                         android:textSize="18sp"
                         android:textColor="@color/colorWhite"
                         android:textAlignment="center"

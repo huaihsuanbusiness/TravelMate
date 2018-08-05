@@ -4,13 +4,14 @@ package com.huaihsuanhuang.TravelMate.model;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class MessageInfo implements ListItem{
+public class MessageInfoSelf implements ListItem{
     private String msg_Text;
     private String msg_User;
 
 
 
-    public MessageInfo(String msg_Text, String msg_User) {
+
+    public MessageInfoSelf(String msg_Text, String msg_User) {
         this.msg_Text = msg_Text;
         this.msg_User = msg_User;
 
@@ -34,7 +35,7 @@ public class MessageInfo implements ListItem{
 
     @Override
     public int getListItemType() {
-        return ListItem.TYPE_A;
+        return ListItem.TYPE_B;
     }
 
 }

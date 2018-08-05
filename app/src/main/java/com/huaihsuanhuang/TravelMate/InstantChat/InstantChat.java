@@ -96,7 +96,7 @@ public class InstantChat extends AppCompatActivity {
 
                 holder.chat_sticker.setText(model.getMsg_User().charAt(0));
                 holder.chat_message.setText(model.getMsg_Text());
-//TODO 似乎沒被叫到
+//TODO 似乎沒被叫到 沒set進去
                 long currentTime = System.currentTimeMillis();
                 Date date = new Date(currentTime);
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -109,6 +109,7 @@ public class InstantChat extends AppCompatActivity {
             @NonNull
             @Override
             public ChatViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
                 View view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.chat_item, parent, false);
                 return new ChatViewHolder(view);

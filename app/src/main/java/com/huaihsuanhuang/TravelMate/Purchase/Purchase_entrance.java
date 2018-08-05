@@ -17,7 +17,7 @@ public class Purchase_entrance extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
     private FirebaseAuth mAuth;
     TextView purchase_entrance_text;
-    private static int Fade_timeout=1500;
+    private static int Fade_timeout=1000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

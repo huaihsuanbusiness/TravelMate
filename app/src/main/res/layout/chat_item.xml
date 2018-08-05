@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/tools"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginLeft="4dp"
+    android:layout_marginRight="4dp"
+    android:layout_marginTop="8dp"
+    android:clickable="false"
+    cardview:cardCornerRadius="5dp"
+    cardview:cardElevation="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/chat_sticker_card"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:elevation="12dp"
+            card_view:cardCornerRadius="45dp"
+            android:backgroundTint="@color/colorBlueJeansDark">
+
+            <TextView
+                android:id="@+id/chat_sticker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                 />
+
+        </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/chat_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@+id/chat_sticker_card"
+            android:layout_above="@+id/chat_time"
+            android:text="message"
+            android:textSize="18sp"
+            android:background="@color/colorPinkRose"/>
+        <TextView
+            android:id="@+id/chat_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_marginStart="6dp"
+            android:layout_toEndOf="@+id/chat_sticker_card"
+            android:text="time"
+            android:background="@color/colorPinkRose"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

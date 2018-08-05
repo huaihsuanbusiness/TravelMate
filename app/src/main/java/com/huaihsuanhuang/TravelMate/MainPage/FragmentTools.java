@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.huaihsuanhuang.TravelMate.Account.Auth;
+import com.huaihsuanhuang.TravelMate.InstantChat.InstantChat;
 import com.huaihsuanhuang.TravelMate.MapsActivityWifi;
 import com.huaihsuanhuang.TravelMate.Purchase.Purchase_entrance;
 import com.huaihsuanhuang.TravelMate.Currency.Tools_Currency;
@@ -72,7 +73,7 @@ public class FragmentTools extends Fragment {
         linearLayout_database.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TRAActivity.class);
+                Intent intent = new Intent(getActivity(), InstantChat.class);
                 startActivity(intent);
             }
         });

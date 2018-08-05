@@ -92,7 +92,7 @@ public class Tools_Currency extends AppCompatActivity {
         mSpinner.setAdapter(myAdapter_currency);
         suggestionBox.setAdapter(myAdapter_currency);
         //  mCurrencyType = mCurrencyMap.get("usd").getName();
-//TODO 預設印出usd值 但抓不到 map key
+//TODO 讓預設印出usd值 但抓不到 map key
         //   updateCurrencyInfo();
 
 

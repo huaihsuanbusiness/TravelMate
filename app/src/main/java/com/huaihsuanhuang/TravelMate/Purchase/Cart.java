@@ -47,7 +47,7 @@ public class Cart extends AppCompatActivity {
     CardView cart_item_cardview;
     private FirebaseAuth mAuth;
     private FirebaseUser user;
-
+    private EditText newquantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +99,6 @@ public class Cart extends AppCompatActivity {
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy年-MM月dd日-HH時mm分ss秒");
                 Date date = new Date(currentTime);
 
-
                 databaserequest.child(formatter.format(date)).setValue(request);
                 //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
                 new DatabaseOrder(getBaseContext()).clearcart();
@@ -114,9 +113,34 @@ public class Cart extends AppCompatActivity {
             }
         });
         ad.show();
-
     }
-
+    private void updatecartAlertdialog() {
+        AlertDialog.Builder ad = new AlertDialog.Builder(Cart.this);
+        ad.setTitle("Update Cart");
+        ad.setMessage("Enter new quantity");
+        ad.setIcon(R.drawable.ic_shopping_cart_black_24dp);
+        newquantity = new EditText(Cart.this);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        newquantity.setLayoutParams(layoutParams);
+        ad.setView(newquantity);
+        ad.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            newquantity.getText().toString();
+                Toast.makeText(Cart.this, "Update Successful", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+        ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        ad.show();
+    }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -129,6 +153,8 @@ public class Cart extends AppCompatActivity {
         switch (item.getItemId()) {
 
             case R.id.cart_update: {
+                updatecartAlertdialog();
+                new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(),product_id);
                 return true;
             }
             case R.id.cart_remove: {

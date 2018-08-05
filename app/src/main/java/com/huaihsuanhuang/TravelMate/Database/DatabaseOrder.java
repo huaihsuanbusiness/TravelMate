@@ -74,6 +74,12 @@ public class DatabaseOrder extends SQLiteAssetHelper {
         String query = String.format("DELETE FROM OrderDetail WHERE product_id = %s",product_id);
         db.execSQL(query);
     }
+    public void updatecart(String product_newquantity, String product_id) {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = String.format(" UPDATE OrderDetail SET product_quantity = %s WHERE product_id = %s",product_newquantity,product_id);
+        db.execSQL(query);
+    }
+
 }
 
 

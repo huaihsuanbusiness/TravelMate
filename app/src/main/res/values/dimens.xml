@@ -5,4 +5,13 @@
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="drop_cap_padding_left">10dp</dimen>
+    <dimen name="drop_cap_padding_top">10dp</dimen>
+    <dimen name="drop_cap_padding_right">10dp</dimen>
+    <dimen name="drop_cap_padding_bottom">10dp</dimen>
+    <dimen name="drop_cap_text">64sp</dimen>
+    <dimen name="copy_text">21sp</dimen>
+    <dimen name="scroll_view_height">200dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="drop_cap_linespacing_extra">0sp</dimen>
 </resources>

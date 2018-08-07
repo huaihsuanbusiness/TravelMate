@@ -7,7 +7,7 @@
     android:background="@mipmap/beach"
     android:id="@+id/layout_notification">
 
-    <!-- TODO: Update blank fragment layout -->
+
 
 
     <android.support.v7.widget.RecyclerView

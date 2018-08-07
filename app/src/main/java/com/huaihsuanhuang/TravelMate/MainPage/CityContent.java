@@ -10,17 +10,17 @@ import android.widget.TextView;
 
 import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.City;
+import com.novoda.dropcap.DropCapView;
 import com.squareup.picasso.Picasso;
 
 public class CityContent extends AppCompatActivity {
 
 
-    private TextView cityintro, city_data1, city_data2, city_data3, city_data4, city_data5, city_data6, city_data7, city_data8, city_data9, city_data10;
+    private TextView cityintro,city_data1, city_data2, city_data3, city_data4, city_data5, city_data6, city_data7, city_data8, city_data9, city_data10;
     private ImageView thumbnail;
     private CardView home_city_data1_card, home_city_data2_card, home_city_data3_card, home_city_data4_card, home_city_data5_card,
             home_city_data6_card, home_city_data7_card, home_city_data8_card, home_city_data9_card, home_city_data10_card;
     CollapsingToolbarLayout home_city_collapsing;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

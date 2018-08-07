@@ -89,6 +89,7 @@ public class Auth extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+
        // Toast.makeText(Auth.this,"Login Successful!\n"+ " Welcome back",Toast.LENGTH_LONG).show();
 
     }

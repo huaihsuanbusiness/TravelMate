@@ -1,6 +1,5 @@
 package com.huaihsuanhuang.TravelMate.Purchase;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -35,7 +34,6 @@ import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
 import com.huaihsuanhuang.TravelMate.model.ProductCategory;
 import com.huaihsuanhuang.TravelMate.model.ProductPopular;
-import com.squareup.picasso.Picasso;
 
 public class Purchase_Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -135,7 +133,8 @@ public class Purchase_Home extends AppCompatActivity
                         .load(model.getImage())
                         .into(holder.product_image_horizontal);
                 holder.setItemonclicklistener(new Itemonclicklistener() {
-                    //TODO onclicklistener 沒反應
+                    // TODO onclicklistener 沒反應
+                    // https://stackoverflow.com/questions/6971836/onclicklistener-doesnt-work-with-clickable-attribute
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
                         Intent intent = new Intent(Purchase_Home.this, Product_Content.class);

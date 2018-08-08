@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +25,7 @@ import com.huaihsuanhuang.TravelMate.Database.DatabaseOrder;
 import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Order;
 import com.huaihsuanhuang.TravelMate.model.Requestfirebase;
+import com.huaihsuanhuang.TravelMate.widget.RecyclerViewImplementsContextMenu;
 
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -36,7 +36,7 @@ import java.util.Locale;
 
 public class Cart extends AppCompatActivity {
 
-    RecyclerView cart_recyclerview;
+    RecyclerViewImplementsContextMenu cart_recyclerview;
     RecyclerView.LayoutManager layoutManager;
     FirebaseDatabase database;
     DatabaseReference databaserequest;
@@ -144,10 +144,11 @@ public class Cart extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-
-        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        AdapterView.AdapterContextMenuInfo info = cart_recyclerview.getContextMenuInfo();
         int position = info.position;
-        //TODO info.positoin nullpointerexception
+        // TODO info.positoin nullpointerexception
+        // https://www.jianshu.com/p/02c483518601
+
         View view = info.targetView;
         String product_id=orderlsit_cart.get(position).getProduct_id();
         switch (item.getItemId()) {

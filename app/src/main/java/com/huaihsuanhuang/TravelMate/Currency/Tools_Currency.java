@@ -43,12 +43,19 @@ public class Tools_Currency extends AppCompatActivity {
     private Spinner mSpinner;
     private CardView currency_inputlayout;
     private CardView currency_targetlayout;
+    private ArrayAdapter<CharSequence> myAdapter_currency;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tools_currency);
         initData();
+        mSpinner = findViewById(R.id.spinner_currencytype);
+        myAdapter_currency = ArrayAdapter.createFromResource(
+                this, R.array.Currency, R.layout.support_simple_spinner_dropdown_item);
+        int spinnerPosition = myAdapter_currency.getPosition("USD");
+        mSpinner.setSelection(spinnerPosition);
+        mSpinner.setSelection(spinnerPosition);
         initView();
     }
 
@@ -61,6 +68,7 @@ public class Tools_Currency extends AppCompatActivity {
                         }.getType();
                         mCurrencyMap = new Gson().fromJson(response.toString(), currencyMapType);
                         Log.d(TAG, "mCurrencyMap:" + mCurrencyMap);
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -81,16 +89,16 @@ public class Tools_Currency extends AppCompatActivity {
         mCurrencyInverse = findViewById(R.id.currency_inverse);
         mCurrencyUpdate = findViewById(R.id.currency_update);
         currency_input_title = findViewById(R.id.currency_input_title);
-        mSpinner = findViewById(R.id.spinner_currencytype);
+//        mSpinner = findViewById(R.id.spinner_currencytype);
         AutoCompleteTextView suggestionBox = findViewById(R.id.er_suggestion_box);
         mCurrencyInput = findViewById(R.id.currency_input);
         mCurrencyInputTarget = findViewById(R.id.currency_input_target);
         currency_inputlayout = findViewById(R.id.currency_inputlayout);
         currency_targetlayout = findViewById(R.id.currency_targetlayout);
-        ArrayAdapter<CharSequence> myAdapter_currency = ArrayAdapter.createFromResource(
-                this, R.array.Currency, R.layout.support_simple_spinner_dropdown_item);
-        int spinnerPosition = myAdapter_currency.getPosition("USD");
-        mSpinner.setSelection(spinnerPosition);
+//        ArrayAdapter<CharSequence> myAdapter_currency = ArrayAdapter.createFromResource(
+//                this, R.array.Currency, R.layout.support_simple_spinner_dropdown_item);
+//        int spinnerPosition = myAdapter_currency.getPosition("USD");
+//        mSpinner.setSelection(spinnerPosition);
         mSpinner.setAdapter(myAdapter_currency);
         suggestionBox.setAdapter(myAdapter_currency);
 

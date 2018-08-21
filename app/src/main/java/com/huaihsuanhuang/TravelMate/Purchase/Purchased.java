@@ -39,6 +39,7 @@ public class Purchased extends AppCompatActivity {
         purchased_recyclerview = findViewById(R.id.purchased_recyclerview);
         purchased_modelList = new ArrayList<>();
         mAdapter = new PurchasedAdapter(this,purchased_modelList);
+        linearLayoutManager = new LinearLayoutManager(this);
         purchased_recyclerview.setLayoutManager(linearLayoutManager);
         purchased_recyclerview.setAdapter(mAdapter);
         mAuth  = FirebaseAuth.getInstance();

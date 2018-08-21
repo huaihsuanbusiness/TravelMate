@@ -1,35 +1,39 @@
 package com.huaihsuanhuang.TravelMate.model;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class MessageInfo implements ListItem{
-    private String msg_Text;
-    private String msg_User;
+    private String text;
+    private String user;
+    private String time;
 
-
-
-    public MessageInfo(String msg_Text, String msg_User) {
-        this.msg_Text = msg_Text;
-        this.msg_User = msg_User;
-
+    public MessageInfo(String text, String user, String time) {
+        this.text = text;
+        this.user = user;
+        this.time = time;
     }
 
-    public String getMsg_Text() {
-        return msg_Text;
+    public String getText() {
+        return text;
     }
 
-    public void setMsg_Text(String msg_Text) {
-        this.msg_Text = msg_Text;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getMsg_User() {
-        return msg_User;
+    public String getUser() {
+        return user;
     }
 
-    public void setMsg_User(String msg_User) {
-        this.msg_User = msg_User;
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     @Override

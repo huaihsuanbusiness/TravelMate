@@ -67,6 +67,8 @@ public class Tools_Currency extends AppCompatActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         Log.e(TAG, "error : " + error.toString());
+                        mCurrencyType = mCurrencyMap.get("usd").getName();
+                        updateCurrencyInfo();
                     }
                 });
         Volley.newRequestQueue(this).add(jsonObjectRequest);
@@ -91,9 +93,6 @@ public class Tools_Currency extends AppCompatActivity {
         mSpinner.setSelection(spinnerPosition);
         mSpinner.setAdapter(myAdapter_currency);
         suggestionBox.setAdapter(myAdapter_currency);
-        //  mCurrencyType = mCurrencyMap.get("usd").getName();
-//TODO 讓預設印出usd值 但抓不到 map key
-        //   updateCurrencyInfo();
 
 
         suggestionBox.setOnItemClickListener(new AdapterView.OnItemClickListener() {

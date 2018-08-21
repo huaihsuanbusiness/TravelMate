@@ -9,7 +9,6 @@
         android:layout_height="150dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:clickable="true"
         cardview:cardElevation="5dp"
         cardview:cardCornerRadius="5dp"
         android:layout_marginLeft="14dp"

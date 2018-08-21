@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Feedback.Feedback"
+    android:id="@+id/activity_feedback">
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/feedback_sendbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="228dp"
+        android:layout_marginTop="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:src="@drawable/ic_send_black_24dp"
+        android:tint="@color/colorWhite"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_edit_text" />
+
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/feedback_edit_text"
+        android:layout_width="316dp"
+        android:layout_height="221dp"
+        android:layout_marginTop="56dp"
+        android:background="@color/colorAquaDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </android.support.design.widget.TextInputEditText>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -30,6 +30,7 @@ import com.huaihsuanhuang.TravelMate.widget.RecyclerViewImplementsContextMenu;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -48,7 +49,7 @@ public class Cart extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private EditText newquantity;
-
+    public ArrayList<String> formattedTime_array =new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,8 +99,11 @@ public class Cart extends AppCompatActivity {
                 long currentTime = System.currentTimeMillis();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy年-MM月dd日-HH時mm分ss秒");
                 Date date = new Date(currentTime);
+               String formattedtime=formatter.format(date);
+                databaserequest.child(mAuth.getCurrentUser().getUid()).child(formattedtime).setValue(request);
 
-                databaserequest.child(formatter.format(date)).setValue(request);
+                formattedTime_array.add(formattedtime);
+                Collections.sort(formattedTime_array);
                 //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
                 new DatabaseOrder(getBaseContext()).clearcart();
                 Toast.makeText(Cart.this, "Order Placed", Toast.LENGTH_LONG).show();
@@ -113,19 +117,21 @@ public class Cart extends AppCompatActivity {
             }
         });
         ad.show();
+       ;
     }
     private void updatecartAlertdialog() {
-        AlertDialog.Builder ad = new AlertDialog.Builder(Cart.this);
-        ad.setTitle("Update Cart");
-        ad.setMessage("Enter new quantity");
-        ad.setIcon(R.drawable.ic_shopping_cart_black_24dp);
+        AlertDialog.Builder uad = new AlertDialog.Builder(Cart.this);
+        uad.setTitle("Update Cart");
+        uad.setMessage("Enter new quantity");
+        uad.setIcon(R.drawable.ic_shopping_cart_black_24dp);
+        uad.create();
         newquantity = new EditText(Cart.this);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT);
         newquantity.setLayoutParams(layoutParams);
-        ad.setView(newquantity);
-        ad.setPositiveButton("Update", new DialogInterface.OnClickListener() {
+        uad.setView(newquantity);
+        uad.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             newquantity.getText().toString();
@@ -133,34 +139,35 @@ public class Cart extends AppCompatActivity {
                 finish();
             }
         });
-        ad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        uad.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
             }
         });
-        ad.show();
+        uad.show();
     }
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = cart_recyclerview.getContextMenuInfo();
         int position = info.position;
-        // TODO info.positoin nullpointerexception
-        // https://www.jianshu.com/p/02c483518601
+
 
         View view = info.targetView;
         String product_id=orderlsit_cart.get(position).getProduct_id();
         switch (item.getItemId()) {
 
             case R.id.cart_update: {
-                updatecartAlertdialog();
-                new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(),product_id);
+               updatecartAlertdialog();
+               //TODO 沒跑進來 無法更新資料
+               new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(), product_id);
                 return true;
             }
             case R.id.cart_remove: {
                 new DatabaseOrder(getBaseContext()).removecart(product_id);
                 return true;
+                //TODO 沒跑進來 無法移除資料
             }
         }
         return true;

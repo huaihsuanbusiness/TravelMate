@@ -72,7 +72,8 @@
         <activity android:name=".Purchase.Purchase_detaillist" />
         <activity android:name=".Purchase.Product_Content" />
         <activity android:name=".Purchase.Cart" />
-        <activity android:name=".InstantChat.InstantChat"></activity>
+        <activity android:name=".Feedback.Feedback" />
+        <activity android:name=".Purchase.Purchased"></activity>
     </application>
 
 </manifest>

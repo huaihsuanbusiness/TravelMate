@@ -128,13 +128,11 @@ public class Purchase_Home extends AppCompatActivity
             @Override
             protected void onBindViewHolder(@NonNull ProductVHHorizontal holder, int position, @NonNull ProductPopular model) {
                 holder.product_name_horizontal.setText(model.getName());
-             //   Picasso.get().load(model.getImage()).into(holder.product_image_horizontal);
                 Glide.with(Purchase_Home.this)
                         .load(model.getImage())
                         .into(holder.product_image_horizontal);
                 holder.setItemonclicklistener(new Itemonclicklistener() {
-                    // TODO onclicklistener 沒反應
-                    // https://stackoverflow.com/questions/6971836/onclicklistener-doesnt-work-with-clickable-attribute
+
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
                         Intent intent = new Intent(Purchase_Home.this, Product_Content.class);
@@ -167,8 +165,7 @@ public class Purchase_Home extends AppCompatActivity
             protected void onBindViewHolder(@NonNull ProductViewHolder holder, int position, @NonNull ProductCategory model) {
                 Log.d("loadin", model.getImage() + "\n" + model.getName());
                 holder.product_name.setText(model.getName());
-               // Picasso.get().load(model.getImage()).into(holder.product_image);
-                // final ProductCategory clickitem =model;
+
                 Glide.with(Purchase_Home.this)
                         .load(model.getImage())
                         .into(holder.product_image);
@@ -243,7 +240,8 @@ public class Purchase_Home extends AppCompatActivity
             startActivity(cartintent_drawer);
 
         } else if (id == R.id.nav_ordered) {
-
+            Intent purchasedintent_drawer = new Intent(Purchase_Home.this, Purchased.class);
+            startActivity(purchasedintent_drawer);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

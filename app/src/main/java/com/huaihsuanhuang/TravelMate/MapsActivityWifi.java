@@ -211,7 +211,7 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
 //                                    + location.getLongitude());
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(location.getLatitude(),
-                                            //TODO on a null object reference
+
                                             location.getLongitude())
                                     , 13));
                             currentlatitude = location.getLatitude();

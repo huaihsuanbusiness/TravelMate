@@ -33,6 +33,7 @@ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnCreateCon
     private int position;
 
 
+
     public void setPosition(int position) {
         this.position = position;
     }
@@ -70,11 +71,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
     public CartAdapter(@NonNull List<Order> listdata, Context context) {
         this.listdata = listdata;
         this.context = context;
+
     }
 
-    public void updateData(List<Order> listdata) {
-        this.listdata = listdata;
-    }
 
     @NonNull
     public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

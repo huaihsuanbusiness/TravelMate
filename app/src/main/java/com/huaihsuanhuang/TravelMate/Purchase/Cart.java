@@ -49,8 +49,7 @@ public class Cart extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser user;
     private EditText newquantity;
-    public ArrayList<String> formattedTime_array = new ArrayList<>();
-
+    public ArrayList<String> formattedTime_array =new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,7 +99,7 @@ public class Cart extends AppCompatActivity {
                 long currentTime = System.currentTimeMillis();
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy年-MM月dd日-HH時mm分ss秒");
                 Date date = new Date(currentTime);
-                String formattedtime = formatter.format(date);
+               String formattedtime=formatter.format(date);
                 databaserequest.child(mAuth.getCurrentUser().getUid()).child(formattedtime).setValue(request);
 
                 formattedTime_array.add(formattedtime);
@@ -118,10 +117,9 @@ public class Cart extends AppCompatActivity {
             }
         });
         ad.show();
-        ;
+       ;
     }
-
-    private void updatecartAlertdialog(final String product_id) {
+    private void updatecartAlertdialog() {
         AlertDialog.Builder uad = new AlertDialog.Builder(Cart.this);
         uad.setTitle("Update Cart");
         uad.setMessage("Enter new quantity");
@@ -136,7 +134,7 @@ public class Cart extends AppCompatActivity {
         uad.setPositiveButton("Update", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(), product_id);
+            newquantity.getText().toString();
                 Toast.makeText(Cart.this, "Update Successful", Toast.LENGTH_LONG).show();
                 finish();
             }
@@ -157,20 +155,17 @@ public class Cart extends AppCompatActivity {
 
 
         View view = info.targetView;
-        String product_id = orderlsit_cart.get(position).getProduct_id();
+        String product_id=orderlsit_cart.get(position).getProduct_id();
         switch (item.getItemId()) {
 
             case R.id.cart_update: {
-                updatecartAlertdialog(product_id);
-                //TODO 沒跑進來 無法更新資料
-//               new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(), product_id);
+               updatecartAlertdialog();
+               //TODO 沒跑進來 無法更新資料
+               new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(), product_id);
                 return true;
             }
             case R.id.cart_remove: {
                 new DatabaseOrder(getBaseContext()).removecart(product_id);
-                orderlsit_cart.remove(new Order().setProduct_id(product_id));
-                adapter.updateData(orderlsit_cart);
-                adapter.notifyDataSetChanged();
                 return true;
                 //TODO 沒跑進來 無法移除資料
             }

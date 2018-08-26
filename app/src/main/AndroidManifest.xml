@@ -73,7 +73,8 @@
         <activity android:name=".Purchase.Product_Content" />
         <activity android:name=".Purchase.Cart" />
         <activity android:name=".Feedback.Feedback" />
-        <activity android:name=".Purchase.Purchased"></activity>
+        <activity android:name=".Purchase.Purchased" />
+        <activity android:name=".Purchase.SearchActivity"></activity>
     </application>
 
 </manifest>

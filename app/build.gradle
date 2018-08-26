@@ -72,6 +72,9 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.novoda:drop-cap:1.1.0'
+    implementation 'com.nicolkill:easysearchview:+'
+  //  implementation 'com.github.mancj:MaterialSearchBar:0.7.6'
+    // TODO 抓不進來
 }
 
 apply plugin: 'com.google.gms.google-services'

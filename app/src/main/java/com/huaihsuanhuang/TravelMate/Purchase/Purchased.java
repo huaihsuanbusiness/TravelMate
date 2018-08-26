@@ -3,7 +3,6 @@ package com.huaihsuanhuang.TravelMate.Purchase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -38,59 +37,59 @@ public class Purchased extends AppCompatActivity {
         setContentView(R.layout.activity_purchased);
         purchased_recyclerview = findViewById(R.id.purchased_recyclerview);
         purchased_modelList = new ArrayList<>();
-        mAdapter = new PurchasedAdapter(this,purchased_modelList);
+        mAdapter = new PurchasedAdapter(this, purchased_modelList);
         linearLayoutManager = new LinearLayoutManager(this);
         purchased_recyclerview.setLayoutManager(linearLayoutManager);
         purchased_recyclerview.setAdapter(mAdapter);
-        mAuth  = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         rootRef = FirebaseDatabase.getInstance().getReference();
         databaserequest = rootRef.child("databaserequest").child(mAuth.getCurrentUser().getUid());
         final Cart cart = new Cart();
-        databaserequest.addValueEventListener(new ValueEventListener() {
-            //TODO 沒跑進來 recyclerview無法顯示
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        //    databaserequest.addValueEventListener(new ValueEventListener() {
+        //TODO 沒跑進來 recyclerview無法顯示
+        //        @Override
+        //        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (String time : cart.formattedTime_array) {
-
-
-                        final DatabaseReference productlistref = rootRef.child(time).child("productlist");
-
-                        productlistref.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if (dataSnapshot.hasChild("0")){
-                                collectproductlist((Map<String,Object>) Objects.requireNonNull(dataSnapshot.getValue()));}
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
+        for (String time : cart.formattedTime_array) {
 
 
+            final DatabaseReference productlistref = databaserequest.child(time).child("productlist");
+
+
+            productlistref.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.hasChild("0")) {
+
+                            collectproductlist((Map<String, Object>) Objects.requireNonNull(dataSnapshot.getValue()));
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-
-            }
-        });
-
+            });
+        }
     }
 
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//
+//            }
+//        });
+//
+//    }
+
     private void collectproductlist(Map<String, Object> productlist) {
-        for (Map.Entry<String, Object> entry : productlist.entrySet()){
+        for (Map.Entry<String, Object> entry : productlist.entrySet()) {
 
             Map singleItem = (Map) entry.getValue();
-            String name =(String) singleItem.get("product_name");
+            String name = (String) singleItem.get("product_name");
             String price = (String) singleItem.get("product_price");
             String quantity = (String) singleItem.get("product_quantity");
-            purchased_modelList.add(new Purchased_model(name,price,quantity));
+            purchased_modelList.add(new Purchased_model(name, price, quantity));
             mAdapter.notifyDataSetChanged();
         }
 

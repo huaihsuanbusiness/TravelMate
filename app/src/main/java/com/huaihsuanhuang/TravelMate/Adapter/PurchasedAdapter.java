@@ -3,7 +3,6 @@ package com.huaihsuanhuang.TravelMate.Adapter;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,9 +39,9 @@ List<Purchased_model> modelList;
 
     @Override
     public void onBindViewHolder(@NonNull PurchasedViewHolder holder, int position) {
-    holder.cart_item_name.setText(modelList.get(position).getPurchased_product_name());
-    holder.cart_item_price.setText(modelList.get(position).getPurchased_product_price());
-        TextDrawable textDrawable = TextDrawable.builder().buildRound(" " + modelList.get(position).getPurchased_product_quantity(), Color.BLUE);
+    holder.cart_item_name.setText(modelList.get(position).getProduct_name());
+    holder.cart_item_price.setText(modelList.get(position).getProduct_price());
+        TextDrawable textDrawable = TextDrawable.builder().buildRound(" " + modelList.get(position).getProduct_quantity(), Color.BLUE);
         holder.cart_count.setImageDrawable(textDrawable);
 
 

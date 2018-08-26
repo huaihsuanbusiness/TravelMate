@@ -231,11 +231,7 @@ public class Purchase_Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_explore) {
-
-        } else if (id == R.id.nav_wishlist) {
-
-        } else if (id == R.id.nav_cart) {
+    if (id == R.id.nav_cart) {
             Intent cartintent_drawer = new Intent(Purchase_Home.this, Cart.class);
             startActivity(cartintent_drawer);
 

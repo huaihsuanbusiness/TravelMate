@@ -8,6 +8,9 @@ public class Order {
     private String product_price;
     private String product_discount;
 
+    public Order() {
+    }
+
     public Order(String product_id, String product_name, String product_quantity, String product_price, String product_discount) {
         this.product_id = product_id;
         this.product_name = product_name;
@@ -20,8 +23,9 @@ public class Order {
         return product_id;
     }
 
-    public void setProduct_id(String product_id) {
+    public Order setProduct_id(String product_id) {
         this.product_id = product_id;
+        return this;
     }
 
     public String getProduct_name() {
@@ -54,5 +58,22 @@ public class Order {
 
     public void setProduct_discount(String product_discount) {
         this.product_discount = product_discount;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+
+        Order order = (Order) o;
+
+        return product_id != null ? product_id.equals(order.product_id) : order.product_id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return product_id != null ? product_id.hashCode() : 0;
     }
 }

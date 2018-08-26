@@ -2,20 +2,14 @@ package com.huaihsuanhuang.TravelMate.Database;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 
-import com.huaihsuanhuang.TravelMate.Manifest;
 import com.huaihsuanhuang.TravelMate.model.Order;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
 public class DatabaseOrder extends SQLiteAssetHelper {
     private static final String DB_name = "TMDB.db";
@@ -76,7 +70,7 @@ public class DatabaseOrder extends SQLiteAssetHelper {
     }
     public void updatecart(String product_newquantity, String product_id) {
         SQLiteDatabase db = getWritableDatabase();
-        String query = String.format(" UPDATE OrderDetail SET product_quantity = %s WHERE product_id = %s",product_newquantity,product_id);
+        String query = String.format(" UPDATE OrderDetail SET product_quantity = '%s' WHERE product_id = '%s'",product_newquantity,product_id);
         db.execSQL(query);
     }
 

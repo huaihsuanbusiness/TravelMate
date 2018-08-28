@@ -19,9 +19,9 @@ import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Purchased_model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class Purchased extends AppCompatActivity {
 
@@ -32,6 +32,7 @@ public class Purchased extends AppCompatActivity {
     private PurchasedAdapter mAdapter;
     private List<Purchased_model> purchased_modelList;
     private FirebaseAuth mAuth;
+    private Map<String, Object> mMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,59 +48,45 @@ public class Purchased extends AppCompatActivity {
         rootRef = FirebaseDatabase.getInstance().getReference();
 
         // sample hard code
-        databaserequest = rootRef.child("databaserequest").child("l5fDfujEHBSnAREGqpnl0sTED143").orderByChild("account").equalTo("huaihsuanhuang9549@gmail.com");
+        databaserequest = rootRef.child("databaserequest").child(mAuth.getCurrentUser().getUid()).orderByChild("account").equalTo(mAuth.getCurrentUser().getEmail());
 
-        final Cart cart = new Cart();
         databaserequest.addValueEventListener(new ValueEventListener() {
-            //TODO 沒跑進來 recyclerview無法顯示
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.d("Purchased", "dataSnapshot.getChildrenCount():" + dataSnapshot.getChildrenCount());
 
-        for (String time : cart.formattedTime_array) {
+                saveinlist(dataSnapshot);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            final DatabaseReference productlistref = databaserequest.child(time).child("productlist");
+            }
+        });
 
-
-            productlistref.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.hasChild("0")) {
-
-                            collectproductlist((Map<String, Object>) Objects.requireNonNull(dataSnapshot.getValue()));
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
     }
 
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//
-//            }
-//        });
-//
-//    }
+    private void saveinlist(DataSnapshot dataSnapshot) {
+        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+            for (DataSnapshot snapshot1 : snapshot.child("productlist").getChildren()) {
+                for (DataSnapshot snapshot2 : snapshot1.getChildren()) {
+                    mMap.put(snapshot2.getKey(), snapshot2.getValue());
+                }
+                String product_name = mMap.get("product_name").toString();
+                String product_price = mMap.get("product_price").toString();
+                String product_quantity = mMap.get("product_quantity").toString();
+                String product_discount = mMap.get("product_discount").toString();
+                String product_id = mMap.get("product_id").toString();
+                purchased_modelList.add(new Purchased_model(product_name, product_price, product_quantity, product_discount, product_id));
+                mAdapter.notifyDataSetChanged();
 
-    private void collectproductlist(Map<String, Object> productlist) {
-        for (Map.Entry<String, Object> entry : productlist.entrySet()) {
 
-            Map singleItem = (Map) entry.getValue();
-            String name = (String) singleItem.get("product_name");
-            String price = (String) singleItem.get("product_price");
-            String quantity = (String) singleItem.get("product_quantity");
-            purchased_modelList.add(new Purchased_model(name, price, quantity));
-            mAdapter.notifyDataSetChanged();
+
+                mMap.clear();
+            }
+
+
         }
-
-
+        Log.d("Purchased000", "dataSnapshot.getChildrenCount():" + dataSnapshot.getChildrenCount());
     }
 }
 

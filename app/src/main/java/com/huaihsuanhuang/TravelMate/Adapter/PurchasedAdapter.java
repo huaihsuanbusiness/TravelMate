@@ -19,11 +19,11 @@ import java.util.List;
 public class PurchasedAdapter extends RecyclerView.Adapter<PurchasedAdapter.PurchasedViewHolder>{
 
 Context context;
-List<Purchased_model> modelList;
+List<Purchased_model> purchased_modelList;
 
-    public PurchasedAdapter(Context context, List<Purchased_model> modelList) {
+    public PurchasedAdapter(Context context, List<Purchased_model> purchased_modelList) {
         this.context = context;
-        this.modelList = modelList;
+        this.purchased_modelList = purchased_modelList;
     }
 
     @NonNull
@@ -39,9 +39,9 @@ List<Purchased_model> modelList;
 
     @Override
     public void onBindViewHolder(@NonNull PurchasedViewHolder holder, int position) {
-    holder.cart_item_name.setText(modelList.get(position).getProduct_name());
-    holder.cart_item_price.setText(modelList.get(position).getProduct_price());
-        TextDrawable textDrawable = TextDrawable.builder().buildRound(" " + modelList.get(position).getProduct_quantity(), Color.BLUE);
+    holder.cart_item_name.setText(purchased_modelList.get(position).getProduct_name());
+    holder.cart_item_price.setText(purchased_modelList.get(position).getProduct_price());
+        TextDrawable textDrawable = TextDrawable.builder().buildRound(" " + purchased_modelList.get(position).getProduct_quantity(), Color.BLUE);
         holder.cart_count.setImageDrawable(textDrawable);
 
 
@@ -51,7 +51,7 @@ List<Purchased_model> modelList;
 
     @Override
     public int getItemCount() {
-        return 0;
+        return purchased_modelList.size();
     }
 
     static class PurchasedViewHolder extends RecyclerView.ViewHolder{

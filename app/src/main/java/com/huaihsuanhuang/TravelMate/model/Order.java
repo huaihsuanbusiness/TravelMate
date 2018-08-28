@@ -23,6 +23,7 @@ public class Order {
         return product_id;
     }
 
+    //void to Order
     public Order setProduct_id(String product_id) {
         this.product_id = product_id;
         return this;

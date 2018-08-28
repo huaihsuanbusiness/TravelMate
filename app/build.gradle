@@ -74,6 +74,7 @@ dependencies {
     implementation 'com.novoda:drop-cap:1.1.0'
     implementation 'com.facebook.stetho:stetho:1.4.1'
     implementation 'com.nicolkill:easysearchview:+'
+    implementation 'com.facebook.stetho:stetho:1.4.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

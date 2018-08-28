@@ -118,7 +118,7 @@ public class Cart extends AppCompatActivity {
             }
         });
         ad.show();
-        ;
+
     }
 
     private void updatecartAlertdialog(final String product_id) {
@@ -162,7 +162,7 @@ public class Cart extends AppCompatActivity {
 
             case R.id.cart_update: {
                 updatecartAlertdialog(product_id);
-                //TODO 沒跑進來 無法更新資料
+
 //               new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(), product_id);
                 return true;
             }
@@ -172,7 +172,7 @@ public class Cart extends AppCompatActivity {
                 adapter.updateData(orderlsit_cart);
                 adapter.notifyDataSetChanged();
                 return true;
-                //TODO 沒跑進來 無法移除資料
+
             }
         }
         return true;

@@ -48,7 +48,7 @@ public class FragmentHome extends Fragment {
 
         RecyclerView myRecyclerView = rootView.findViewById(R.id.recyclerview_id);
          myAdapter = new RecyclerviewAdapter(this.getActivity(),cityList);
-    //    myRecyclerView.setHasFixedSize(true);
+
         myRecyclerView.setLayoutManager( new GridLayoutManager(this.getContext(),2));
         myRecyclerView.setAdapter(myAdapter);
         View view =rootView.findViewById(R.id.layout_home);

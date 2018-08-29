@@ -105,7 +105,7 @@ public class Cart extends AppCompatActivity {
 
                 formattedTime_array.add(formattedtime);
                 Collections.sort(formattedTime_array);
-                //    databaserequest.child(String.valueOf(System.currentTimeMillis())).setValue(request);
+
                 new DatabaseOrder(getBaseContext()).clearcart();
                 Toast.makeText(Cart.this, "Order Placed", Toast.LENGTH_LONG).show();
                 finish();
@@ -163,7 +163,6 @@ public class Cart extends AppCompatActivity {
             case R.id.cart_update: {
                 updatecartAlertdialog(product_id);
 
-//               new DatabaseOrder(getBaseContext()).updatecart(newquantity.getText().toString(), product_id);
                 return true;
             }
             case R.id.cart_remove: {

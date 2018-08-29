@@ -47,7 +47,7 @@ public class Purchased extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         rootRef = FirebaseDatabase.getInstance().getReference();
 
-        // sample hard code
+
         databaserequest = rootRef.child("databaserequest").child(mAuth.getCurrentUser().getUid()).orderByChild("account").equalTo(mAuth.getCurrentUser().getEmail());
 
         databaserequest.addValueEventListener(new ValueEventListener() {

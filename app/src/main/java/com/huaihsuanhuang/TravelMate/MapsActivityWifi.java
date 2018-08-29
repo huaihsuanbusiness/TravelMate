@@ -4,11 +4,16 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
+import android.util.Log;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -23,13 +28,6 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import android.util.Log;
-
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.huaihsuanhuang.TravelMate.model.MarkerLocation;
@@ -41,15 +39,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Retrofit;
-
 public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
-    private ArrayList<ArrayList<String>> wrapall =new ArrayList<>();
+    private ArrayList<ArrayList<String>> wrapall = new ArrayList<>();
     private ArrayList<String> transthree = new ArrayList<>();
     private static final int REQUEST_LOCATION = 2;
     Double currentlongitude;
@@ -57,7 +51,7 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
     LocationRequest locationRequest;
     List<MarkerLocation> markerLocations;
     String server_url = "https://quality.data.gov.tw/dq_download_json.php?nid=60139&md5_url=e5ba999fc4eefe3f9ff4a933f898ae8a";
-   // private ArrayList<com.huaihsuanhuang.TravelMate.Marker> markerdata = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,8 +84,6 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
     }
 
 
-
-
     private void parserJson(JSONArray jsonArray) {
 
         try {
@@ -103,7 +95,7 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
                 String title = object.getString("機關名稱");
                 String longitudevalue = object.get("經度").toString();
                 String latitudevalue = object.get("緯度").toString();
-                if (longitudevalue.isEmpty() || latitudevalue.isEmpty() ) {
+                if (longitudevalue.isEmpty() || latitudevalue.isEmpty()) {
                     continue;
                 }
 
@@ -114,8 +106,6 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
                 addMarker(wifipoint, title);
 
             }
-
-
 
 
         } catch (JSONException e) {
@@ -156,25 +146,19 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-           ActivityCompat.requestPermissions(
+            ActivityCompat.requestPermissions(
                     this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_LOCATION);
             return;
-        }
-        else {
+        } else {
             setupMyLocation();
             createLocationRequest();
-       //     fuseLocationRequest();
+            //     fuseLocationRequest();
         }
 
 
-            LatLng place = new LatLng(25.051861, 121.544006);
-            moveMap(place);
-
-
-
-
-
+        LatLng place = new LatLng(25.051861, 121.544006);
+        moveMap(place);
 
 
     }
@@ -196,7 +180,6 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
     }
 
 
-
     @SuppressLint("MissingPermission")
     private void fuseLocation() {
         FusedLocationProviderClient client =
@@ -205,37 +188,36 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
                 this, new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Location location = task.getResult();
-//                            Log.i("LOCATION", location.getLatitude() + "/"
-//                                    + location.getLongitude());
+//
                             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                                     new LatLng(location.getLatitude(),
 
                                             location.getLongitude())
                                     , 13));
                             currentlatitude = location.getLatitude();
-                            currentlongitude=location.getLongitude();
+                            currentlongitude = location.getLongitude();
                         }
                     }
                 });
 
     }
 
-    private void createLocationRequest(){
+    private void createLocationRequest() {
         locationRequest = new LocationRequest();
         locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval (2000);
+        locationRequest.setFastestInterval(2000);
         locationRequest.setPriority(
                 LocationRequest.PRIORITY_HIGH_ACCURACY);
     }
 
     @SuppressLint("MissingPermission")
-    private void fuseLocationRequest(){
+    private void fuseLocationRequest() {
         FusedLocationProviderClient client =
                 LocationServices.getFusedLocationProviderClient(this);
         client.requestLocationUpdates(locationRequest,
-                new LocationCallback(){
+                new LocationCallback() {
                     @Override
                     public void onLocationResult(LocationResult locationResult) {
                         Location location = locationResult.getLastLocation();
@@ -248,6 +230,7 @@ public class MapsActivityWifi extends FragmentActivity implements OnMapReadyCall
                 }
                 , null);
     }
+
     @Override
     @SuppressLint("MissingPermission")
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

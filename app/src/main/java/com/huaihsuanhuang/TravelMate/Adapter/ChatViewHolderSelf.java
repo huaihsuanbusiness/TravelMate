@@ -13,8 +13,9 @@ public class ChatViewHolderSelf extends RecyclerView.ViewHolder {
 
     public ChatViewHolderSelf(View itemView) {
         super(itemView);
-        chat_sticker_self =itemView.findViewById(R.id.chat_sticker_self);
-        chat_message_self =itemView.findViewById(R.id.chat_message_self);
-        chat_time_self =itemView.findViewById(R.id.chat_time_self);
+        chat_sticker_self = itemView.findViewById(R.id.chat_sticker_self);
+        chat_message_self = itemView.findViewById(R.id.chat_message_self);
+        chat_time_self = itemView.findViewById(R.id.chat_time_self);
 
-    }}
+    }
+}

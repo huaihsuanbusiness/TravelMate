@@ -89,16 +89,12 @@ public class Tools_Currency extends AppCompatActivity {
         mCurrencyInverse = findViewById(R.id.currency_inverse);
         mCurrencyUpdate = findViewById(R.id.currency_update);
         currency_input_title = findViewById(R.id.currency_input_title);
-//        mSpinner = findViewById(R.id.spinner_currencytype);
         AutoCompleteTextView suggestionBox = findViewById(R.id.er_suggestion_box);
         mCurrencyInput = findViewById(R.id.currency_input);
         mCurrencyInputTarget = findViewById(R.id.currency_input_target);
         currency_inputlayout = findViewById(R.id.currency_inputlayout);
         currency_targetlayout = findViewById(R.id.currency_targetlayout);
-//        ArrayAdapter<CharSequence> myAdapter_currency = ArrayAdapter.createFromResource(
-//                this, R.array.Currency, R.layout.support_simple_spinner_dropdown_item);
-//        int spinnerPosition = myAdapter_currency.getPosition("USD");
-//        mSpinner.setSelection(spinnerPosition);
+
         mSpinner.setAdapter(myAdapter_currency);
         suggestionBox.setAdapter(myAdapter_currency);
 

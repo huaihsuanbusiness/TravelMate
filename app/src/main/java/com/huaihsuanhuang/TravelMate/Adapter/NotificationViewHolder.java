@@ -13,13 +13,11 @@ public class NotificationViewHolder extends RecyclerviewAdapter.RecyclerViewHold
     public NotificationViewHolder(View itemView) {
         super(itemView);
 
-        subject_noti=itemView.findViewById(R.id.noti_text_subject);
-        content_noti=itemView.findViewById(R.id.noti_text_content);
-        update_noti=itemView.findViewById(R.id.noti_text_update);
+        subject_noti = itemView.findViewById(R.id.noti_text_subject);
+        content_noti = itemView.findViewById(R.id.noti_text_content);
+        update_noti = itemView.findViewById(R.id.noti_text_update);
 
     }
-
-
 
 
 }

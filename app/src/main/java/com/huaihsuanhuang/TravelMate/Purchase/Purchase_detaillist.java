@@ -1,9 +1,9 @@
 package com.huaihsuanhuang.TravelMate.Purchase;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,21 +15,20 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.huaihsuanhuang.TravelMate.Adapter.Productdetailviewholder;
 import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
 import com.huaihsuanhuang.TravelMate.model.Productdetail;
-import com.huaihsuanhuang.TravelMate.Adapter.Productdetailviewholder;
 import com.squareup.picasso.Picasso;
 
 public class Purchase_detaillist extends AppCompatActivity {
-    String pruductId="";
+    String pruductId = "";
     FirebaseDatabase firebaseDatabase;
     DatabaseReference detail;
 
-   private RecyclerView recyclerView;
+    private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    FirebaseRecyclerAdapter<Productdetail,Productdetailviewholder> adapter;
-
+    FirebaseRecyclerAdapter<Productdetail, Productdetailviewholder> adapter;
 
 
     @Override
@@ -37,27 +36,29 @@ public class Purchase_detaillist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_detaillist);
 
-        firebaseDatabase=FirebaseDatabase.getInstance();
-        detail=firebaseDatabase.getReference("detail");
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        detail = firebaseDatabase.getReference("detail");
 
-        recyclerView=findViewById(R.id.recycler_detaillist);
+        recyclerView = findViewById(R.id.recycler_detaillist);
         recyclerView.setHasFixedSize(true);
-        layoutManager=new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        if(getIntent()!=null){
-            pruductId =getIntent().getStringExtra("productKey");
+        if (getIntent() != null) {
+            pruductId = getIntent().getStringExtra("productKey");
         }
-        if (!(pruductId.isEmpty())&& pruductId!=null){
-            loadinproduct( pruductId.toString());
+        if (!(pruductId.isEmpty()) && pruductId != null) {
+            loadinproduct(pruductId.toString());
         }
 
     }
+
     @Override
     protected void onStart() {
         super.onStart();
 
         adapter.startListening();
     }
+
     protected void onStop() {
         super.onStop();
 
@@ -71,10 +72,10 @@ public class Purchase_detaillist extends AppCompatActivity {
                         .setQuery(detail.orderByChild("fmenuId").equalTo(pruductId), Productdetail.class)
                         .build();
 
-        adapter =new FirebaseRecyclerAdapter<Productdetail, Productdetailviewholder>(options) {
+        adapter = new FirebaseRecyclerAdapter<Productdetail, Productdetailviewholder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull Productdetailviewholder holder, int position, @NonNull final Productdetail model) {
-                Log.d("detaildata",model.getAname()+"\n"+model.getBimage());
+                Log.d("detaildata", model.getAname() + "\n" + model.getBimage());
                 holder.product_detail_name.setText(model.getAname());
                 Picasso.get().load(model.getBimage()).into(holder.product_detail_image);
 
@@ -83,8 +84,8 @@ public class Purchase_detaillist extends AppCompatActivity {
                     @Override
                     public void onClick(View view, int position, boolean islongclick) {
 
-                        Intent intent =new Intent(Purchase_detaillist.this,Product_Content.class);
-                        intent.putExtra("Id",adapter.getRef(position).getKey());
+                        Intent intent = new Intent(Purchase_detaillist.this, Product_Content.class);
+                        intent.putExtra("Id", adapter.getRef(position).getKey());
                         startActivity(intent);
 
                     }

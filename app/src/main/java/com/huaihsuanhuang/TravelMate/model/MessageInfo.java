@@ -1,7 +1,7 @@
 package com.huaihsuanhuang.TravelMate.model;
 
 
-public class MessageInfo implements ListItem{
+public class MessageInfo implements ListItem {
     private String text;
     private String user;
     private String time;

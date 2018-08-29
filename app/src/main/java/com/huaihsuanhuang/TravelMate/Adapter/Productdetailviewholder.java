@@ -4,8 +4,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
 import com.huaihsuanhuang.TravelMate.R;
+import com.huaihsuanhuang.TravelMate.model.Itemonclicklistener;
 
 public class Productdetailviewholder extends RecyclerviewAdapter.RecyclerViewHolder implements View.OnClickListener {
     public TextView product_detail_name;
@@ -20,16 +20,15 @@ public class Productdetailviewholder extends RecyclerviewAdapter.RecyclerViewHol
         super(itemView);
 
 
-        product_detail_image=itemView.findViewById(R.id.product_detail_background);
-        product_detail_name=itemView.findViewById(R.id.product_detail_title);
+        product_detail_image = itemView.findViewById(R.id.product_detail_background);
+        product_detail_name = itemView.findViewById(R.id.product_detail_title);
         itemView.setOnClickListener(this);
-}
-
+    }
 
 
     @Override
     public void onClick(View v) {
-itemonclicklistener.onClick(v,getAdapterPosition(),false);
+        itemonclicklistener.onClick(v, getAdapterPosition(), false);
     }
 
 

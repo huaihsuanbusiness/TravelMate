@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.huaihsuanhuang.TravelMate.model.Notifications;
 import com.huaihsuanhuang.TravelMate.R;
+import com.huaihsuanhuang.TravelMate.model.Notifications;
 
 import java.util.List;
 
@@ -29,8 +29,8 @@ public class RecyclerviewAdapterNotification extends RecyclerView.Adapter<Recycl
         View view;
 //        Context mContext = parent.getContext();
 
-        LayoutInflater layoutInflater =LayoutInflater.from(mContext);
-        view= layoutInflater.inflate(R.layout.notification_items,parent,false);
+        LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+        view = layoutInflater.inflate(R.layout.notification_items, parent, false);
 
 
         return new RecyclerViewHolder(view);
@@ -51,27 +51,22 @@ public class RecyclerviewAdapterNotification extends RecyclerView.Adapter<Recycl
         return mNotification.size();
     }
 
-    public static class RecyclerViewHolder extends RecyclerView.ViewHolder{
+    public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
 
         TextView noti_subject;
         TextView noti_content;
         TextView noti_update;
         CardView noti_carditem;
+
         public RecyclerViewHolder(View itemView) {
             super(itemView);
-            noti_subject=  itemView.findViewById(R.id.noti_text_subject);
-            noti_content= itemView.findViewById(R.id.noti_text_content);
+            noti_subject = itemView.findViewById(R.id.noti_text_subject);
+            noti_content = itemView.findViewById(R.id.noti_text_content);
             noti_update = itemView.findViewById(R.id.noti_text_update);
-            noti_carditem=itemView.findViewById(R.id.noti_carditem);
+            noti_carditem = itemView.findViewById(R.id.noti_carditem);
         }
-//        public void setValues(Notifications notifications){
-//            noti_subject.setText(notifications.getNoti_subject());
-//            noti_content.setText(notifications.getNoti_content());
-//            noti_update.setText(notifications.getNoti_update());
-//
-//
-//        }
+
     }
 
 }

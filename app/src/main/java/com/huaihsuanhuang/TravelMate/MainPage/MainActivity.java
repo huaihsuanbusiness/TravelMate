@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
                     FragmentHome fragmentHome = new FragmentHome();
 
                     FragmentTransaction fragmentTransactionhome = getSupportFragmentManager().beginTransaction();
-                    fragmentTransactionhome.replace(R.id.fram,fragmentHome, "name");
+                    fragmentTransactionhome.replace(R.id.fram, fragmentHome, "name");
                     fragmentTransactionhome.commit();
 
                     return true;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     setTitle("Tools");
                     FragmentTools fragmentTools = new FragmentTools();
                     FragmentTransaction fragmentTransactionTools = getSupportFragmentManager().beginTransaction();
-                    fragmentTransactionTools.replace(R.id.fram,fragmentTools, "name");
+                    fragmentTransactionTools.replace(R.id.fram, fragmentTools, "name");
                     fragmentTransactionTools.commit();
                     return true;
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     setTitle("Notification");
                     FragmentNotification fragmentNotification = new FragmentNotification();
                     FragmentTransaction fragmentTransactionnotification = getSupportFragmentManager().beginTransaction();
-                    fragmentTransactionnotification.replace(R.id.fram,fragmentNotification, "name");
+                    fragmentTransactionnotification.replace(R.id.fram, fragmentNotification, "name");
                     fragmentTransactionnotification.commit();
                     return true;
             }
@@ -54,17 +54,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTextMessage =  findViewById(R.id.message);
+        mTextMessage = findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         setTitle("Purchase_Home");
         FragmentHome fragmentHome = new FragmentHome();
         FragmentTransaction fragmentTransactionhome = getSupportFragmentManager().beginTransaction();
-        fragmentTransactionhome.replace(R.id.fram,fragmentHome, "name");
+        fragmentTransactionhome.replace(R.id.fram, fragmentHome, "name");
         fragmentTransactionhome.commit();
-
-
-
 
 
     }

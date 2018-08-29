@@ -7,17 +7,6 @@ public class Currency {
     protected Currency() {
     }
 
-    /**
-     * code : EUR
-     * alphaCode : EUR
-     * numericCode : 978
-     * name : Euro
-     * rate : 0.02810834418025
-     * date : Mon, 30 Jul 2018 00:00:01 GMT
-     * inverseRate : 35.576624278802
-     */
-
-
 
     private String code;
     private String alphaCode;
@@ -27,33 +16,61 @@ public class Currency {
     private String date;
     private double inverseRate;
 
-    public String getCode() { return code;}
+    public String getCode() {
+        return code;
+    }
 
-    public void setCode(String code) { this.code = code;}
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-    public String getAlphaCode() { return alphaCode;}
+    public String getAlphaCode() {
+        return alphaCode;
+    }
 
-    public void setAlphaCode(String alphaCode) { this.alphaCode = alphaCode;}
+    public void setAlphaCode(String alphaCode) {
+        this.alphaCode = alphaCode;
+    }
 
-    public String getNumericCode() { return numericCode;}
+    public String getNumericCode() {
+        return numericCode;
+    }
 
-    public void setNumericCode(String numericCode) { this.numericCode = numericCode;}
+    public void setNumericCode(String numericCode) {
+        this.numericCode = numericCode;
+    }
 
-    public String getName() { return name;}
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public double getRate() { return rate;}
+    public double getRate() {
+        return rate;
+    }
 
-    public void setRate(double rate) { this.rate = rate;}
+    public void setRate(double rate) {
+        this.rate = rate;
+    }
 
-    public String getDate() { return date;}
+    public String getDate() {
+        return date;
+    }
 
-    public void setDate(String date) { this.date = date;}
+    public void setDate(String date) {
+        this.date = date;
+    }
 
-    public double getInverseRate() { return inverseRate;}
+    public double getInverseRate() {
+        return inverseRate;
+    }
 
-    public void setInverseRate(double inverseRate) { this.inverseRate = inverseRate;}
+    public void setInverseRate(double inverseRate) {
+        this.inverseRate = inverseRate;
+    }
 
     @Override
     public String toString() {

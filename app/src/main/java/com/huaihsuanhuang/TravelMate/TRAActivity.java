@@ -1,8 +1,8 @@
 package com.huaihsuanhuang.TravelMate;
 
+import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.webkit.WebSettings;
@@ -14,13 +14,14 @@ public class TRAActivity extends AppCompatActivity {
 
 
     WebView myWebView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tra);
-        //Intent intent = getIntent();
 
-        myWebView =  findViewById(R.id.tra_webview);
+
+        myWebView = findViewById(R.id.tra_webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
         myWebView.requestFocus();
         myWebView.setWebViewClient(new MyWebViewClient());
@@ -28,7 +29,6 @@ public class TRAActivity extends AppCompatActivity {
 
 
     }
-
 
 
     @Override
@@ -50,6 +50,7 @@ public class TRAActivity extends AppCompatActivity {
             return super.shouldOverrideUrlLoading(view, url);
         }
     }
+
     public boolean onKeyDown(int keyCoder, KeyEvent event) {
         if (myWebView.canGoBack() && keyCoder == KeyEvent.KEYCODE_BACK) {
             myWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);

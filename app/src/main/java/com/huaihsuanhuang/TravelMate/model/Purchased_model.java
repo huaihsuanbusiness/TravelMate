@@ -5,12 +5,12 @@ public class Purchased_model {
     private String product_price;
     private String product_quantity;
     private String product_discount;
-private String product_id;
+    private String product_id;
 
 
-   public Purchased_model(){
+    public Purchased_model() {
 
-   }
+    }
 
     public Purchased_model(String product_name, String product_price, String product_quantity, String product_discount, String product_id) {
         this.product_name = product_name;

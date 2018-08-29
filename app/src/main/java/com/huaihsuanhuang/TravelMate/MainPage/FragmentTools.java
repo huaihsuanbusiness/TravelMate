@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.huaihsuanhuang.TravelMate.Account.Auth;
+import com.huaihsuanhuang.TravelMate.Currency.Tools_Currency;
 import com.huaihsuanhuang.TravelMate.Feedback.Feedback;
 import com.huaihsuanhuang.TravelMate.MapsActivityWifi;
 import com.huaihsuanhuang.TravelMate.Purchase.Purchase_entrance;
-import com.huaihsuanhuang.TravelMate.Currency.Tools_Currency;
 import com.huaihsuanhuang.TravelMate.R;
 import com.huaihsuanhuang.TravelMate.TRAActivity;
 
@@ -87,13 +87,11 @@ public class FragmentTools extends Fragment {
             }
         });
         // Inflate the layout for this fragment
-        View view =myfragment.findViewById(R.id.layout_tools);
+        View view = myfragment.findViewById(R.id.layout_tools);
         view.getBackground().setAlpha(60);
 
         return myfragment;
     }
-
-
 
 
 }

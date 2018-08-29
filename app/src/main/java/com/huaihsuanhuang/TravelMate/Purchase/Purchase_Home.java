@@ -54,8 +54,8 @@ public class Purchase_Home extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        product_home_cartbutton=findViewById(R.id.product_home_cartbutton);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        product_home_cartbutton = findViewById(R.id.product_home_cartbutton);
         product_home_cartbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,27 +76,25 @@ public class Purchase_Home extends AppCompatActivity
         FirebaseUser user = mAuth.getCurrentUser();
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerview = navigationView.getHeaderView(0);
         header_text = headerview.findViewById(R.id.drawer_headertext);
         header_text.setText("Welcome " + user.getDisplayName());
 
         recycler_category = findViewById(R.id.recyclerview_category);
-        //    recycler_category.setHasFixedSize(true);
         layoutManager_drawer = new LinearLayoutManager(this);
         recycler_category.setLayoutManager(layoutManager_drawer);
         recycler_category.setDrawingCacheEnabled(true);
         recycler_category.setItemViewCacheSize(20);
         recycler_category.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recycler_horizontal = findViewById(R.id.recyclerview_horizontal);
-        //     recycler_horizontal.setHasFixedSize(true);
         layoutManager_horizontal = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recycler_horizontal.setLayoutManager(layoutManager_horizontal);
         new PagerSnapHelper().attachToRecyclerView(recycler_horizontal);
@@ -212,12 +210,10 @@ public class Purchase_Home extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Purchase_Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -231,7 +227,7 @@ public class Purchase_Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-    if (id == R.id.nav_cart) {
+        if (id == R.id.nav_cart) {
             Intent cartintent_drawer = new Intent(Purchase_Home.this, Cart.class);
             startActivity(cartintent_drawer);
 

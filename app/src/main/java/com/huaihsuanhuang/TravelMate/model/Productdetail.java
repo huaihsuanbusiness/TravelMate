@@ -3,12 +3,12 @@ package com.huaihsuanhuang.TravelMate.model;
 public class Productdetail {
 
     private String aname;
-    private String  bimage;
-    private String  cdescrip;
+    private String bimage;
+    private String cdescrip;
     private String dprice;
-    private String   ediscount;
-    private String   fmenuId;
-    private String   id;
+    private String ediscount;
+    private String fmenuId;
+    private String id;
 
     public String getId() {
         return id;

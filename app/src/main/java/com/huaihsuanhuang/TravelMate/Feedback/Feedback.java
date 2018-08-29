@@ -70,18 +70,16 @@ public class Feedback extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText input = findViewById(R.id.feedback_edit_text);
-//                FirebaseDatabase.getInstance().getReference().push().setValue(
-//                        new MessageInfo(input.getText().toString(), mAuth.getCurrentUser().getDisplayName()));
                 long currentTime = System.currentTimeMillis();
                 Date date = new Date(currentTime);
                 SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                HashMap<String,String> mhashmap=new HashMap<>();
-                mhashmap.put("text",input.getText().toString());
-                mhashmap.put("user",user.getUid());
-                mhashmap.put("time",formatter.format(date));
+                HashMap<String, String> mhashmap = new HashMap<>();
+                mhashmap.put("text", input.getText().toString());
+                mhashmap.put("user", user.getUid());
+                mhashmap.put("time", formatter.format(date));
 
                 reference.child(formatter.format(date)).setValue(mhashmap);
-                Toast.makeText(getBaseContext(),"Thank you for your kindly feedback",Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Thank you for your kindly feedback", Toast.LENGTH_LONG).show();
                 input.setText("");
 
             }

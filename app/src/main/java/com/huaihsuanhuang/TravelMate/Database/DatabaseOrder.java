@@ -15,22 +15,23 @@ public class DatabaseOrder extends SQLiteAssetHelper {
     private static final String DB_name = "TMDB.db";
     private static final String DB_path = "/Users/huaihsuanhuang/AndroidStudioProjects/TravelMate/app/src/main/assets/database/TMDB.db";
     private static final int DB_version = 1;
-   // private SQLiteAssetHelper dbHelper;
+
+    // private SQLiteAssetHelper dbHelper;
     public DatabaseOrder(Context context) {
         super(context, DB_name, null, DB_version);
     }
 
 
     public List<Order> getcart() {
-     //   SQLiteDatabase db = SQLiteDatabase.openDatabase(DB_path, null,
+        //   SQLiteDatabase db = SQLiteDatabase.openDatabase(DB_path, null,
         //               SQLiteDatabase.OPEN_READWRITE);
-     //   SQLiteDatabase db = getWritableDatabase();
+        //   SQLiteDatabase db = getWritableDatabase();
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         String sqlSelect[] = {"product_id", "product_name", "product_quantity", "product_price", "product_discount"};
         String sqltable = "Orderdetail";
         qb.setTables(sqltable);
-      
+
         Cursor cursor = qb.query(db, sqlSelect, null, null, null, null, null);
 
         final List<Order> result = new ArrayList<>();
@@ -63,14 +64,16 @@ public class DatabaseOrder extends SQLiteAssetHelper {
         String query = String.format("DELETE FROM OrderDetail;");
         db.execSQL(query);
     }
+
     public void removecart(String product_id) {
         SQLiteDatabase db = getWritableDatabase();
-        String query = String.format("DELETE FROM OrderDetail WHERE product_id = %s",product_id);
+        String query = String.format("DELETE FROM OrderDetail WHERE product_id = %s", product_id);
         db.execSQL(query);
     }
+
     public void updatecart(String product_newquantity, String product_id) {
         SQLiteDatabase db = getWritableDatabase();
-        String query = String.format(" UPDATE OrderDetail SET product_quantity = '%s' WHERE product_id = '%s'",product_newquantity,product_id);
+        String query = String.format(" UPDATE OrderDetail SET product_quantity = '%s' WHERE product_id = '%s'", product_newquantity, product_id);
         db.execSQL(query);
     }
 

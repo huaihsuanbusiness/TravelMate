@@ -1,14 +1,9 @@
 package com.huaihsuanhuang.TravelMate.model;
 
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-public class MessageInfoSelf implements ListItem{
+public class MessageInfoSelf implements ListItem {
     private String msg_Text;
     private String msg_User;
-
-
 
 
     public MessageInfoSelf(String msg_Text, String msg_User) {

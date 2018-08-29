@@ -2,9 +2,8 @@ package com.huaihsuanhuang.TravelMate.model;
 
 public class ProductCategory {
 
-String image;
-String name;
-
+    String image;
+    String name;
 
 
     public String getImage() {
